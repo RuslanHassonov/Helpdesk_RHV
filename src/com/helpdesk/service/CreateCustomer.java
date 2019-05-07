@@ -15,11 +15,14 @@ public class CreateCustomer {
 
         entityManager.getTransaction().begin();
 
+        Address address = new Address(); //to be adjusted
+        entityManager.persist(address);
+
         Customer customer = new Customer();
         customer.setcId(createRandomCustomerId());
         customer.setcFirstName("  ");
         customer.setcLastName("  ");
-        customer.setcAddress(new Address()); //to be adjusted
+        customer.setcAddress(address); //to be adjusted
         customer.setcPhoneNumber("  ");
         customer.setcEmail("  ");
 

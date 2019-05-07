@@ -15,16 +15,17 @@ public class Customer {
     @ManyToOne
     private Address cAddress;
 
-    public Customer(int cId, String cFirstName, String cLastName, Address cAddress, String cPhoneNumber, String cEmail) {
+    public Customer(int cId, String cFirstName, String cLastName, String cPhoneNumber, String cEmail) {
+        super();
         this.cId = cId;
         this.cFirstName = cFirstName;
         this.cLastName = cLastName;
-        this.cAddress = cAddress;
         this.cPhoneNumber = cPhoneNumber;
         this.cEmail = cEmail;
     }
 
     public Customer() {
+        super();
     }
 
     public int getcId() {

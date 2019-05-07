@@ -16,6 +16,7 @@ public class Address {
     private int aPostalCode;
 
     public Address(int aId, String aStreet, String aCity, int aHouseNumber, int aPostalCode) {
+        super();
         this.aId = aId;
         this.aStreet = aStreet;
         this.aCity = aCity;
@@ -24,6 +25,7 @@ public class Address {
     }
 
     public Address() {
+        super();
     }
 
     public int getaId() {
