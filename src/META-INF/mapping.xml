@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                              http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+                 version="1.0">
+
+    <description> XML Mapping file</description>
+    <entity class="com.helpdesk.entity.Customer">
+        <table name="CUSTOMERTABLE"/>
+        <attributes>
+            <id name="cId">
+                <generated-value strategy="TABLE"/>
+            </id>
+            <basic name="cFirstName">
+                <column name="C_FNAME" length="50"/>
+            </basic>
+            <basic name="cLastName">
+                <column name="C_LNAME" length="50"/>
+            </basic>
+            <basic name="cAddress">
+                <column name="C_ADDRESS" length="150"/>
+            </basic>
+            <basic name="cPhoneNumber">
+                <column name="C_PHONE" length="50"/>
+            </basic>
+            <basic name="cEmail">
+                <column name="C_EMAIL" length="100"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.tutorialspoint.eclipselink.entity.Staff">
+        <table name="STAFFTABLE"/>
+        <attributes>
+            <id name="sid">
+                <generated-value strategy="TABLE"/>
+            </id>
+            <basic name="sname">
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.tutorialspoint.eclipselink.entity.TeachingStaff">
+        <table name="STAFFTABLE"/>
+        <attributes>
+            <basic name="qualification">
+            </basic>
+            <basic name="subjectexpertise">
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.tutorialspoint.eclipselink.entity.NonTeachingStaff">
+        <table name="STAFFTABLE"/>
+        <attributes>
+            <basic name="areaOfExpertise">
+            </basic>
+        </attributes>
+    </entity>
+
+</entity-mappings>
