@@ -19,7 +19,7 @@ public class CreateCustomer {
         customer.setcId(createRandomCustomerId());
         customer.setcFirstName("  ");
         customer.setcLastName("  ");
-        customer.setcAddress("  ");
+        customer.setcAddress(new Address()); //to be adjusted
         customer.setcPhoneNumber("  ");
         customer.setcEmail("  ");
 

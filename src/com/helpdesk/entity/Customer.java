@@ -10,11 +10,12 @@ public class Customer {
     private int cId;
     private String cFirstName;
     private String cLastName;
-    private String cAddress;
     private String cPhoneNumber;
     private String cEmail;
+    @ManyToOne
+    private Address cAddress;
 
-    public Customer(int cId, String cFirstName, String cLastName, String cAddress, String cPhoneNumber, String cEmail) {
+    public Customer(int cId, String cFirstName, String cLastName, Address cAddress, String cPhoneNumber, String cEmail) {
         this.cId = cId;
         this.cFirstName = cFirstName;
         this.cLastName = cLastName;
@@ -50,11 +51,11 @@ public class Customer {
         this.cLastName = cLastName;
     }
 
-    public String getcAddress() {
+    public Address getcAddress() {
         return cAddress;
     }
 
-    public void setcAddress(String cAddress) {
+    public void setcAddress(Address cAddress) {
         this.cAddress = cAddress;
     }
 

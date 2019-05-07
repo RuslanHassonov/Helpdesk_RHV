@@ -2,7 +2,7 @@
 <entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
-                              http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+                                     http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
                  version="1.0">
 
     <description> XML Mapping file</description>
@@ -30,32 +30,25 @@
         </attributes>
     </entity>
 
-    <entity class="com.tutorialspoint.eclipselink.entity.Staff">
-        <table name="STAFFTABLE"/>
+    <entity class="com.helpdesk.entity.Address">
+        <table name="ADDRESSTABLE"/>
         <attributes>
-            <id name="sid">
+            <id name="aId">
                 <generated-value strategy="TABLE"/>
             </id>
-            <basic name="sname">
+            <basic name="aStreet">
+                <column name="A_STREET" length="100"/>
             </basic>
-        </attributes>
-    </entity>
+            <basic name="aHouseNumber">
+                <column name="A_HNUMBER" length="5"/>
+            </basic>
+            <basic name="aPostalCode">
+                <column name="A_PCODE" length="6"/>
+            </basic>
+            <basic name="aCity">
+                <column name="A_CITY" length="100"/>
+            </basic>
 
-    <entity class="com.tutorialspoint.eclipselink.entity.TeachingStaff">
-        <table name="STAFFTABLE"/>
-        <attributes>
-            <basic name="qualification">
-            </basic>
-            <basic name="subjectexpertise">
-            </basic>
-        </attributes>
-    </entity>
-
-    <entity class="com.tutorialspoint.eclipselink.entity.NonTeachingStaff">
-        <table name="STAFFTABLE"/>
-        <attributes>
-            <basic name="areaOfExpertise">
-            </basic>
         </attributes>
     </entity>
 
