@@ -2,7 +2,7 @@ package com.helpdesk.service;
 
 import com.helpdesk.entity.Address;
 import com.helpdesk.entity.Customer;
-import static com.helpdesk.service.Randomizer.createRandomCustomerId;
+import static com.helpdesk.service.Generator.createRandomCustomerId;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

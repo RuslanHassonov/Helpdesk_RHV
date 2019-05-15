@@ -52,4 +52,78 @@
         </attributes>
     </entity>
 
+    <entity class="com.helpdesk.entity.Employee">
+        <table name="EMPLOYEETABLE"/>
+        <inheritance/>
+        <discriminator-column name="empRole"/>
+        <attributes>
+            <id name="eId">
+                <generated-value strategy="TABLE"/>
+            </id>
+            <basic name="eFirstName">
+                <column name="E_FNAME" length="50"/>
+            </basic>
+            <basic name="eLastName">
+                <column name="E_LNAME" length="50"/>
+            </basic>
+            <basic name="ePhoneNumber">
+                <column name="E_PHONE" length="50"/>
+            </basic>
+            <basic name="eEmail">
+                <column name="E_EMAIL" length="100"/>
+            </basic>
+        </attributes>
+    </entity>
+    
+    <entity class="com.helpdesk.entity.Technician">
+        <discriminator-value>TCH</discriminator-value>
+    </entity>
+
+    <entity class="com.helpdesk.entity.Manager">
+        <discriminator-value>MNG</discriminator-value>
+    </entity>
+
+    <entity class="com.helpdesk.entity.Dispatcher">
+        <discriminator-value>DSP</discriminator-value>
+    </entity>
+
+    <entity class="com.helpdesk.entity.Ticket">
+        <table name="TICKETTABLE"/>
+        <attributes>
+            <id name="tId">
+                <generated-value strategy="TABLE"/>
+            </id>
+            <basic name="tStatus">
+                <column name="T_STATUS" length="50"/>
+            </basic>
+            <basic name="tPriority">
+                <column name="T_PRIOR" length="50"/>
+            </basic>
+            <basic name="tDetail">
+                <column name="T_DETAIL" length="50"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.helpdesk.entity.TicketLine">
+        <table name="TICKETLINETABLE"/>
+        <attributes>
+            <id name="tlId">
+                <generated-value strategy="TABLE"/>
+            </id>
+            <basic name="tlDescription">
+                <column name="TL_DESCR" length="200"/>
+            </basic>
+            <basic name="tlDate">
+                <column name="TL_DATE" length="10"/>
+            </basic>
+            <basic name="tlTimestampFrom">
+                <column name="TL_TMSTPFROM" length="20"/>
+            </basic>
+            <basic name="tlTimestampTo">
+                <column name="TL_TMSTPTO" length="20"/>
+            </basic>
+        </attributes>
+    </entity>
+
 </entity-mappings>

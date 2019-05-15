@@ -8,6 +8,10 @@
                             transaction-type="RESOURCE_LOCAL">
         <class>com.helpdesk.entity.Customer</class>
         <class>com.helpdesk.entity.Address</class>
+        <class>com.helpdesk.entity.Employee</class>
+        <class>com.helpdesk.entity.Technician</class>
+        <class>com.helpdesk.entity.Manager</class>
+        <class>com.helpdesk.entity.Dispatcher</class>
         <properties>
             <property name="javax.persistence.jdbc.url"
                       value="jdbc:m ysql://localhost:3306/jpadb"/>

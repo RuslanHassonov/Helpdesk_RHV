@@ -1,6 +1,12 @@
 package com.helpdesk.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class TicketLine {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int tlId;
     private String tlDescription;
     private String tlDate;

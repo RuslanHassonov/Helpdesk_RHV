@@ -1,6 +1,7 @@
 package com.helpdesk.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
@@ -14,6 +15,8 @@ public class Customer {
     private String cEmail;
     @ManyToOne
     private Address cAddress;
+    @OneToMany(targetEntity = Ticket.class)
+    private List cTicketList;
 
     public Customer(int cId, String cFirstName, String cLastName, String cPhoneNumber, String cEmail) {
         super();
@@ -74,5 +77,13 @@ public class Customer {
 
     public void setcEmail(String cEmail) {
         this.cEmail = cEmail;
+    }
+
+    public List getcTicketList() {
+        return cTicketList;
+    }
+
+    public void setcTicketList(List cTicketList) {
+        this.cTicketList = cTicketList;
     }
 }

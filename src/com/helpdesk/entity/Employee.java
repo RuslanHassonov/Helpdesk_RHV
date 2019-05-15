@@ -1,6 +1,14 @@
 package com.helpdesk.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table
+@Inheritance
 public class Employee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int eId;
     private String eFirstName;
     private String eLastName;
@@ -57,4 +65,5 @@ public class Employee {
     public void seteEmail(String eEmail) {
         this.eEmail = eEmail;
     }
+
 }

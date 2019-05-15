@@ -1,19 +1,29 @@
 package com.helpdesk.entity;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table
 public class Ticket {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int tId;
     private String tStatus;
     private String tPriority;
-    private TicketLine tDetail;
 
-    public Ticket(int tId, String tStatus, String tPriority, TicketLine tDetail) {
+    @OneToMany(targetEntity = TicketLine.class)
+    private List tDetail;
+
+    public Ticket(int tId, String tStatus, String tPriority) {
+        super();
         this.tId = tId;
         this.tStatus = tStatus;
         this.tPriority = tPriority;
-        this.tDetail = tDetail;
     }
 
     public Ticket() {
+        super();
     }
 
     public int gettId() {
@@ -40,11 +50,11 @@ public class Ticket {
         this.tPriority = tPriority;
     }
 
-    public TicketLine gettDetail() {
+    public List gettDetail() {
         return tDetail;
     }
 
-    public void settDetail(TicketLine tDetail) {
+    public void settDetail(List tDetail) {
         this.tDetail = tDetail;
     }
 }
