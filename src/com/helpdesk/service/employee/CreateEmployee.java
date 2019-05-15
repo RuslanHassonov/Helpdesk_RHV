@@ -1,4 +1,4 @@
-package com.helpdesk.service.Employee;
+package com.helpdesk.service.employee;
 
 import com.helpdesk.entity.Employee;
 

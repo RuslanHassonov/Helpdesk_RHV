@@ -1,27 +1,22 @@
-package com.helpdesk.service.Address;
+package com.helpdesk.service.customer;
 
-import com.helpdesk.entity.Address;
+import com.helpdesk.entity.Customer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class CreateAddress {
-    public static void createNewAddress(){
+public class DeleteCustomer {
+    public static void deleteExistingCustomer(){
         EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
         EntityManager entityManager = emFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
-        Address address = new Address();
-        address.setaStreet("  ");
-        address.setaHouseNumber(10);
-        address.setaCity("  ");
-        address.setaPostalCode(1000);
-        entityManager.persist(address);
+        Customer customer = entityManager.find(Customer.class, 1200); //to be adjusted
+        entityManager.remove(customer);
         entityManager.getTransaction().commit();
 
         entityManager.close();
         emFactory.close();
-
     }
 }

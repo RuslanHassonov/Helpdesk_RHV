@@ -1,4 +1,4 @@
-package com.helpdesk.service.Customer;
+package com.helpdesk.service.customer;
 
 import com.helpdesk.entity.Customer;
 
