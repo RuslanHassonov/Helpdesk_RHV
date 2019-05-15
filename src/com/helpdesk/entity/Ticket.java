@@ -15,6 +15,9 @@ public class Ticket {
     @OneToMany(targetEntity = TicketLine.class)
     private List tDetail;
 
+    @OneToOne
+    private Address tAddress;
+
     public Ticket(int tId, String tStatus, String tPriority) {
         super();
         this.tId = tId;
@@ -56,5 +59,13 @@ public class Ticket {
 
     public void settDetail(List tDetail) {
         this.tDetail = tDetail;
+    }
+
+    public Address gettAddress() {
+        return tAddress;
+    }
+
+    public void settAddress(Address tAddress) {
+        this.tAddress = tAddress;
     }
 }
