@@ -1,10 +1,30 @@
 .button
 {
--fx-background-color: transparent;
-
+    -fx-background-color: transparent;
 
 }
+
+.topBtn{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+
+}
+
 .button:hover{
--fx-background-color: #5173AA;
+    -fx-background-color: #5173AA;
 
 }
+
+.button:pressed{
+    -fx-background-color: #6683B4;
+}
+
+.topBtn:hover{
+    -fx-opacity: 80%;
+    -fx-background-color: #DADADA;
+}
+.topBtn:pressed{
+    -fx-background-color: #6683B4;
+}
+
