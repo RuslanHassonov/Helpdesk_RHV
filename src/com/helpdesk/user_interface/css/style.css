@@ -1,3 +1,4 @@
+
 .button
 {
     -fx-background-color: transparent;
@@ -40,7 +41,7 @@
 .table-view {
     -fx-base: #5579b2;
     -fx-control-inner-background: #1d1d1d;
-    -fx-font-style: normal;
+    -fx-font-weight: none;
     -fx-background-color: transparent;
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
@@ -64,7 +65,7 @@
 }
 
 .table-view .column-header .label {
-    -fx-font-size: 20pt;
+    -fx-font-size: 18pt;
     -fx-font-family: "Segoe UI Light";
     -fx-text-fill: black;
     -fx-alignment: center-left;
@@ -86,5 +87,19 @@
             derive(-fx-base, 80%)
             transparent;
     -fx-border-insets: 0 10 1 0;
+}
+
+.text-field{
+    -fx-font-family: "Segoe UI";
+}
+
+.split-pane:horizontal > .split-pane-divider {
+    -fx-border-color: transparent #5579b2 transparent transparent;
+    -fx-border-width: 1px;
+    -fx-background-color: transparent;
+}
+
+.label-detail{
+    -fx-text-fill: #808080;
 }
 

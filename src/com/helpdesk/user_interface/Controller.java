@@ -155,7 +155,7 @@ public class Controller {
     @FXML
     private void staffButtonPressed(){
         screenInitialize();
-        ap_TicketList.setDisable(false);
+        ap_Staff.setDisable(false);
         ap_Staff.setVisible(true);
     }
 

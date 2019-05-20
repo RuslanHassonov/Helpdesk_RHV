@@ -159,7 +159,7 @@
       </HBox>
       <AnchorPane fx:id="ap_Customers" layoutX="250.0" layoutY="46.0" prefHeight="403.0" prefWidth="650.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
          <children>
-            <SplitPane dividerPositions="0.5" layoutX="7.0" layoutY="36.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="36.0">
+            <SplitPane dividerPositions="0.5" layoutX="7.0" layoutY="36.0" stylesheets="@css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="36.0">
                <items>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
@@ -202,31 +202,31 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="First Name">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="First Name">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font></Label>
-                              <Label text="Last Name" GridPane.rowIndex="1">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="Last Name" GridPane.rowIndex="1">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font></Label>
-                              <Label text="Street" GridPane.rowIndex="2">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="Street" GridPane.rowIndex="2">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font></Label>
-                              <Label text="City" GridPane.rowIndex="3">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="City" GridPane.rowIndex="3">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font></Label>
-                              <Label text="Postal Code" GridPane.rowIndex="4">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="Postal Code" GridPane.rowIndex="4">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font></Label>
-                              <Label text="Phone" GridPane.rowIndex="5">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="Phone" GridPane.rowIndex="5">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font></Label>
-                              <Label text="Email" GridPane.rowIndex="6">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="Email" GridPane.rowIndex="6">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font></Label>
@@ -277,11 +277,17 @@
                            </children>
                         </HBox>
                      </children>
+                     <padding>
+                        <Insets left="7.0" />
+                     </padding>
                   </AnchorPane>
-               </items></SplitPane>
+               </items>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" color="#00000026" offsetY="2.0" />
+               </effect></SplitPane>
             <HBox layoutX="429.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TextField fx:id="tf_CustNumber" promptText="Custoner Number..." />
+                  <TextField fx:id="tf_CustNumber" promptText="Customer Number..." stylesheets="@css/style.css" />
                   <Button fx:id="btn_SearchCust" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                      <font>
                         <Font name="Segoe UI" size="13.0" />
@@ -351,32 +357,32 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Label text="Ticket N°">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="Ticket N°">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font>
                               </Label>
-                              <Label text="Status" GridPane.rowIndex="1">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="Status" GridPane.rowIndex="1">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font>
                               </Label>
-                              <Label text="Priority" GridPane.rowIndex="2">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="Priority" GridPane.rowIndex="2">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font>
                               </Label>
-                              <Label text="Assigned To" GridPane.rowIndex="3">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="Assigned To" GridPane.rowIndex="3">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font>
                               </Label>
-                              <Label text="Date" GridPane.rowIndex="4">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="Date" GridPane.rowIndex="4">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font>
                               </Label>
-                              <Label text="Description" GridPane.rowIndex="5">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="Description" GridPane.rowIndex="5">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font>
@@ -433,12 +439,18 @@
                            </children>
                         </HBox>
                      </children>
+                     <padding>
+                        <Insets left="7.0" />
+                     </padding>
                   </AnchorPane>
                </items>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" color="#00000026" offsetY="2.0" />
+               </effect>
             </SplitPane>
             <HBox layoutX="429.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TextField fx:id="tf_CustNumber1" promptText="Ticket Number..." />
+                  <TextField fx:id="tf_CustNumber1" promptText="Ticket Number..." stylesheets="@css/style.css" />
                   <Button fx:id="btn_SearchTicket" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                      <font>
                         <Font name="Segoe UI" size="13.0" />
@@ -507,27 +519,27 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Label text="First Name">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="First Name">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font>
                               </Label>
-                              <Label text="Last Name" GridPane.rowIndex="1">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="Last Name" GridPane.rowIndex="1">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font>
                               </Label>
-                              <Label text="Role" GridPane.rowIndex="4">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="Role" GridPane.rowIndex="4">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font>
                               </Label>
-                              <Label text="Phone" GridPane.rowIndex="5">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="Phone" GridPane.rowIndex="5">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font>
                               </Label>
-                              <Label text="Email" GridPane.rowIndex="6">
+                              <Label styleClass="label-detail" stylesheets="@css/style.css" text="Email" GridPane.rowIndex="6">
                                  <font>
                                     <Font name="Segoe UI" size="15.0" />
                                  </font>
@@ -579,12 +591,18 @@
                            </children>
                         </HBox>
                      </children>
+                     <padding>
+                        <Insets left="7.0" />
+                     </padding>
                   </AnchorPane>
                </items>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" color="#00000026" offsetY="2.0" />
+               </effect>
             </SplitPane>
             <HBox layoutX="429.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TextField fx:id="tf_CustNumber11" promptText="Employee Number..." />
+                  <TextField fx:id="tf_CustNumber11" promptText="Employee Number..." stylesheets="@css/style.css" />
                   <Button fx:id="btn_SearchStaff" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                      <font>
                         <Font name="Segoe UI" size="13.0" />
