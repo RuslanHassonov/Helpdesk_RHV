@@ -1,6 +1,8 @@
 package com.helpdesk.user_interface;
 
 import com.helpdesk.entity.Customer;
+import com.helpdesk.entity.Employee;
+import com.helpdesk.entity.Ticket;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,13 +13,33 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Controller {
+
+    //<editor-fold desc="table-view definition">
     @FXML
     private TableView<Customer> tblV_Customer;
     @FXML
-    private TableColumn<Customer, String> tblC_FirstName;
+    private TableColumn<Customer, String> tblC_CustomerNr;
     @FXML
-    private TableColumn<Customer, String> tblC_LastName;
+    private TableColumn<Customer, String> tblC_CustFullName;
 
+    @FXML
+    private TableView<Employee> tblV_Employee;
+    @FXML
+    private TableColumn<Employee, String> tblC_EmplNr;
+    @FXML
+    private TableColumn<Employee, String> tblC_EmplFullName;
+
+    @FXML
+    private TableView<Ticket> tblV_TicketListTable;
+    @FXML
+    private TableColumn<Ticket, String> tblC_TicketNr;
+    @FXML
+    private TableColumn<Ticket, String> tblC_TicketStatus;
+    @FXML
+    private TableColumn<Ticket, String> tblC_TicketDate;
+    //</editor-fold>
+
+    //<editor-fold desc="button definition">
     @FXML
     private Button btn_Minimize;
     @FXML
@@ -32,10 +54,12 @@ public class Controller {
     private Button btn_Staff;
     @FXML
     private Button btn_SearchCust;
+    //</editor-fold>
 
     @FXML
     private TextField tf_CustNumber;
 
+    //<editor-fold desc="label definition">
     @FXML
     private Label lbl_FirstName;
     @FXML
@@ -50,13 +74,16 @@ public class Controller {
     private Label lbl_Phone;
     @FXML
     private Label lbl_Email;
+    //</editor-fold>
 
+    //<editor-fold desc="anchor-pane definition">
     @FXML
     private AnchorPane ap_Customers;
     @FXML
     private AnchorPane ap_TicketList;
     @FXML
     private AnchorPane ap_Staff;
+    //</editor-fold>
 
     private ObservableList<Customer> customerDate = FXCollections.observableArrayList();
 
