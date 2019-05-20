@@ -11,12 +11,18 @@
 
 }
 
-.button:hover{
+.crudBtn{
+    -fx-background-color: #5579b2;
+    -fx-background-radius: 0;
+    -fx-padding: 7;
+    -fx-text-fill: #ededed;
+}
+.button:hover, .crudBtn:hover{
     -fx-background-color: #5173AA;
 
 }
 
-.button:pressed{
+.button:pressed, .crudBtn:pressed{
     -fx-background-color: #6683B4;
 }
 
@@ -28,6 +34,4 @@
     -fx-background-color: #6683B4;
 }
 
-.table-view{
 
-}
