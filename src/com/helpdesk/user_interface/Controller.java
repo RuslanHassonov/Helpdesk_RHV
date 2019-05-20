@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class Controller {
@@ -11,6 +12,18 @@ public class Controller {
     private Button btn_Minimize;
     @FXML
     private Button btn_Close;
+    @FXML
+    private Button btn_Home;
+    @FXML
+    private Button btn_Customers;
+    @FXML
+    private Button btn_TicketList;
+    @FXML
+    private Button btn_Staff;
+    @FXML
+    private Button btn_SearchCust;
+    @FXML
+    private TextField tf_CustNumber;
 
     @FXML
     private void minimizeButtonPressed(){
