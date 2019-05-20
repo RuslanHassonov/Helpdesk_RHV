@@ -7,7 +7,6 @@
 .topBtn{
     -fx-background-color: transparent;
     -fx-background-radius: 0;
-    -fx-padding: 0;
 
 }
 
@@ -27,11 +26,65 @@
 }
 
 .topBtn:hover{
-    -fx-opacity: 80%;
     -fx-background-color: #DADADA;
 }
+
+.topBtnClose:hover{
+    -fx-background-color: #AF6766;
+}
+
 .topBtn:pressed{
     -fx-background-color: #6683B4;
 }
 
+.table-view {
+    -fx-base: #5579b2;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-font-style: normal;
+    -fx-background-color: transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color:
+            transparent
+            transparent
+            derive(-fx-base, 80%)
+            transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 20pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: black;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+.label-header{
+    -fx-base: #5579b2;
+    -fx-font-size: 20pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: black;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color:
+            transparent
+            transparent
+            derive(-fx-base, 80%)
+            transparent;
+    -fx-border-insets: 0 10 1 0;
+}
 
