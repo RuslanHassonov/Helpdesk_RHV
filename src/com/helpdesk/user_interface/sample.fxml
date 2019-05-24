@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.helpdesk.user_interface.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.helpdesk.user_interface.Controller">
    <children>
       <VBox prefHeight="650.0" prefWidth="250.0" style="-fx-background-color: #5579b2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -49,7 +49,7 @@
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                      <image>
-                        <Image url="@icons/outline_home_white_48dpx2.png" />
+                        <Image url="@icons/outline_home_white_24dpx2.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
@@ -157,7 +157,7 @@
             </Button>
          </children>
       </HBox>
-      <AnchorPane fx:id="ap_Customers" layoutX="250.0" layoutY="46.0" prefHeight="403.0" prefWidth="650.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
+      <AnchorPane fx:id="ap_Customers" layoutX="250.0" layoutY="46.0" prefHeight="403.0" prefWidth="650.0" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
          <children>
             <SplitPane dividerPositions="0.5" layoutX="7.0" layoutY="36.0" stylesheets="@css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="36.0">
                <items>
@@ -287,7 +287,7 @@
                </effect></SplitPane>
             <HBox layoutX="429.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TextField fx:id="tf_CustNumber" promptText="Customer Number..." stylesheets="@css/style.css" />
+                  <TextField fx:id="tf_CustNumber" prefHeight="30.0" prefWidth="165.0" promptText="Customer Number..." stylesheets="@css/style.css" />
                   <Button fx:id="btn_SearchCust" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                      <font>
                         <Font name="Segoe UI" size="13.0" />
@@ -310,7 +310,7 @@
             </HBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="ap_TicketList" layoutX="260.0" layoutY="56.0" prefHeight="403.0" prefWidth="650.0" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
+      <AnchorPane fx:id="ap_TicketList" layoutX="260.0" layoutY="56.0" prefHeight="403.0" prefWidth="650.0" stylesheets="@css/style.css" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
          <children>
             <SplitPane dividerPositions="0.5" layoutX="7.0" layoutY="36.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="36.0">
                <items>
@@ -450,7 +450,7 @@
             </SplitPane>
             <HBox layoutX="429.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TextField fx:id="tf_CustNumber1" promptText="Ticket Number..." stylesheets="@css/style.css" />
+                  <TextField fx:id="tf_CustNumber1" prefHeight="30.0" prefWidth="165.0" promptText="Ticket Number..." stylesheets="@css/style.css" />
                   <Button fx:id="btn_SearchTicket" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                      <font>
                         <Font name="Segoe UI" size="13.0" />
@@ -473,7 +473,7 @@
             </HBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="ap_Staff" layoutX="270.0" layoutY="66.0" prefHeight="403.0" prefWidth="650.0" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="65.0">
+      <AnchorPane fx:id="ap_Staff" layoutX="270.0" layoutY="66.0" prefHeight="403.0" prefWidth="650.0" stylesheets="@css/style.css" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="65.0">
          <children>
             <SplitPane dividerPositions="0.5" layoutX="7.0" layoutY="36.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="36.0">
                <items>
@@ -602,7 +602,7 @@
             </SplitPane>
             <HBox layoutX="429.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TextField fx:id="tf_CustNumber11" promptText="Employee Number..." stylesheets="@css/style.css" />
+                  <TextField fx:id="tf_CustNumber11" prefHeight="30.0" prefWidth="165.0" promptText="Employee Number..." stylesheets="@css/style.css" />
                   <Button fx:id="btn_SearchStaff" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                      <font>
                         <Font name="Segoe UI" size="13.0" />
