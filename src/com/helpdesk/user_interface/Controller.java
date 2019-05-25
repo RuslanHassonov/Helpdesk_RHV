@@ -7,10 +7,16 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 public class Controller {
 
@@ -54,6 +60,8 @@ public class Controller {
     private Button btn_Staff;
     @FXML
     private Button btn_SearchCust;
+    @FXML
+    private Button btn_NewCustomer;
     //</editor-fold>
 
     @FXML
@@ -87,8 +95,8 @@ public class Controller {
 
     private ObservableList<Customer> customerDate = FXCollections.observableArrayList();
 
-    private void showCustomerDetails(Customer customer){
-        if (customer != null){
+    private void showCustomerDetails(Customer customer) {
+        if (customer != null) {
             lbl_FirstName.setText(customer.getcFirstName());
             lbl_LastName.setText(customer.getcLastName());
             lbl_Street.setText(customer.getcAddress().getaStreet());
@@ -109,7 +117,7 @@ public class Controller {
         }
     }
 
-    private void screenInitialize(){
+    private void screenInitialize() {
         ap_Customers.setDisable(true);
         ap_TicketList.setDisable(true);
         ap_Staff.setDisable(true);
@@ -119,7 +127,7 @@ public class Controller {
     }
 
     @FXML
-    private void initialize(){
+    private void initialize() {
         screenInitialize();
         tblV_Customer.setItems(customerDate);
 
@@ -134,41 +142,60 @@ public class Controller {
     }
 
     @FXML
-    private void homeButtonPressed(){
+    private void homeButtonPressed() {
         screenInitialize();
     }
 
     @FXML
-    private void customersButtonPressed(){
+    private void customersButtonPressed() {
         screenInitialize();
         ap_Customers.setDisable(false);
         ap_Customers.setVisible(true);
     }
 
     @FXML
-    private void ticketsButtonPressed(){
+    private void ticketsButtonPressed() {
         screenInitialize();
         ap_TicketList.setDisable(false);
         ap_TicketList.setVisible(true);
     }
 
     @FXML
-    private void staffButtonPressed(){
+    private void staffButtonPressed() {
         screenInitialize();
         ap_Staff.setDisable(false);
         ap_Staff.setVisible(true);
     }
 
+    @FXML
+    private void newCustomerButtonPressed() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("newCustomer.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage newCustWindow = new Stage();
+            newCustWindow.initStyle(StageStyle.UNDECORATED);
+            newCustWindow.setScene(new Scene(root));
+            newCustWindow.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void cancelButtonPressed(){
+        closeButtonPressed();
+    }
 
 
     @FXML
-    private void minimizeButtonPressed(){
-        Stage stage =(Stage) btn_Minimize.getScene().getWindow();
+    private void minimizeButtonPressed() {
+        Stage stage = (Stage) btn_Minimize.getScene().getWindow();
         stage.setIconified(true);
     }
 
     @FXML
-    private void closeButtonPressed(){
+    private void closeButtonPressed() {
         Platform.exit();
     }
 

@@ -9,22 +9,22 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class CreateCustomer {
-    public static void createNewCustomer(){
+    public static void createNewCustomer(String fName, String lName, Address address, String phone, String email){
         EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
         EntityManager entityManager = emFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
 
-        Address address = new Address(); //to be adjusted
-        entityManager.persist(address);
+        //Address address = new Address(); //to be adjusted
+        //entityManager.persist(address);
 
         Customer customer = new Customer();
         customer.setcId(createRandomCustomerId());
-        customer.setcFirstName("  ");
-        customer.setcLastName("  ");
+        customer.setcFirstName(fName);
+        customer.setcLastName(lName);
         customer.setcAddress(address); //to be adjusted
-        customer.setcPhoneNumber("  ");
-        customer.setcEmail("  ");
+        customer.setcPhoneNumber(phone);
+        customer.setcEmail(email);
 
         entityManager.persist(customer);
         entityManager.getTransaction().commit();

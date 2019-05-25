@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class CreateAddress {
-    public static void createNewAddress(){
+    public static Address createNewAddress(String street, int houseNr, String city, int postCode){
         EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
         EntityManager entityManager = emFactory.createEntityManager();
 
@@ -22,6 +22,8 @@ public class CreateAddress {
 
         entityManager.close();
         emFactory.close();
+
+        return address;
 
     }
 }

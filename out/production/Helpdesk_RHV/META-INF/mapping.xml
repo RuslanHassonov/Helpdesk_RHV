@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                                     http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+                 version="1.0">
+
+    <description> XML Mapping file</description>
+    <entity class="com.helpdesk.entity.Customer">
+        <table name="CUSTOMERTABLE"/>
+        <attributes>
+            <id name="cId">
+                <generated-value strategy="TABLE"/>
+            </id>
+            <basic name="cFirstName">
+                <column name="C_FNAME" length="50"/>
+            </basic>
+            <basic name="cLastName">
+                <column name="C_LNAME" length="50"/>
+            </basic>
+            <basic name="cAddress">
+                <column name="C_ADDRESS" length="150"/>
+            </basic>
+            <basic name="cPhoneNumber">
+                <column name="C_PHONE" length="50"/>
+            </basic>
+            <basic name="cEmail">
+                <column name="C_EMAIL" length="100"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.helpdesk.entity.Address">
+        <table name="ADDRESSTABLE"/>
+        <attributes>
+            <id name="aId">
+                <generated-value strategy="TABLE"/>
+            </id>
+            <basic name="aStreet">
+                <column name="A_STREET" length="100"/>
+            </basic>
+            <basic name="aHouseNumber">
+                <column name="A_HNUMBER" length="5"/>
+            </basic>
+            <basic name="aPostalCode">
+                <column name="A_PCODE" length="6"/>
+            </basic>
+            <basic name="aCity">
+                <column name="A_CITY" length="100"/>
+            </basic>
+
+        </attributes>
+    </entity>
+
+    <entity class="com.helpdesk.entity.Employee">
+        <table name="EMPLOYEETABLE"/>
+        <inheritance/>
+        <discriminator-column name="empRole"/>
+        <attributes>
+            <id name="eId">
+                <generated-value strategy="TABLE"/>
+            </id>
+            <basic name="eFirstName">
+                <column name="E_FNAME" length="50"/>
+            </basic>
+            <basic name="eLastName">
+                <column name="E_LNAME" length="50"/>
+            </basic>
+            <basic name="ePhoneNumber">
+                <column name="E_PHONE" length="50"/>
+            </basic>
+            <basic name="eEmail">
+                <column name="E_EMAIL" length="100"/>
+            </basic>
+        </attributes>
+    </entity>
+    
+    <entity class="com.helpdesk.entity.Technician">
+        <discriminator-value>TCH</discriminator-value>
+    </entity>
+
+    <entity class="com.helpdesk.entity.Manager">
+        <discriminator-value>MNG</discriminator-value>
+    </entity>
+
+    <entity class="com.helpdesk.entity.Dispatcher">
+        <discriminator-value>DSP</discriminator-value>
+    </entity>
+
+    <entity class="com.helpdesk.entity.Ticket">
+        <table name="TICKETTABLE"/>
+        <attributes>
+            <id name="tId">
+                <generated-value strategy="TABLE"/>
+            </id>
+            <basic name="tStatus">
+                <column name="T_STATUS" length="50"/>
+            </basic>
+            <basic name="tPriority">
+                <column name="T_PRIOR" length="50"/>
+            </basic>
+            <basic name="tDetail">
+                <column name="T_DETAIL" length="50"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.helpdesk.entity.TicketLine">
+        <table name="TICKETLINETABLE"/>
+        <attributes>
+            <id name="tlId">
+                <generated-value strategy="TABLE"/>
+            </id>
+            <basic name="tlDescription">
+                <column name="TL_DESCR" length="200"/>
+            </basic>
+            <basic name="tlDate">
+                <column name="TL_DATE" length="10"/>
+            </basic>
+            <basic name="tlTimestampFrom">
+                <column name="TL_TMSTPFROM" length="20"/>
+            </basic>
+            <basic name="tlTimestampTo">
+                <column name="TL_TMSTPTO" length="20"/>
+            </basic>
+        </attributes>
+    </entity>
+
+</entity-mappings>

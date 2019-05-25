@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Helpdesk_RHV.iml" filepath="$PROJECT_DIR$/Helpdesk_RHV.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Helpdesk_RHV.iml" filepath="$PROJECT_DIR$/.idea/Helpdesk_RHV.iml" />
     </modules>
   </component>
 </project>
