@@ -6,11 +6,13 @@ import com.helpdesk.entity.Ticket;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -93,6 +95,10 @@ public class Controller {
     private AnchorPane ap_Staff;
     //</editor-fold>
 
+    private double xOffset = 0;
+    private double yOffset = 0;
+
+
     private ObservableList<Customer> customerDate = FXCollections.observableArrayList();
 
     private void showCustomerDetails(Customer customer) {
@@ -174,6 +180,24 @@ public class Controller {
             Parent root = fxmlLoader.load();
             Stage newCustWindow = new Stage();
             newCustWindow.initStyle(StageStyle.UNDECORATED);
+
+            //Make undecorated window draggable/movable
+            root.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    xOffset = event.getSceneX();
+                    yOffset = event.getSceneY();
+                }
+            });
+
+            root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    newCustWindow.setX(event.getScreenX() - xOffset);
+                    newCustWindow.setY(event.getScreenY() - yOffset);
+                }
+            });
+
             newCustWindow.setScene(new Scene(root));
             newCustWindow.show();
 
@@ -183,7 +207,7 @@ public class Controller {
     }
 
     @FXML
-    private void cancelButtonPressed(){
+    private void cancelButtonPressed() {
         closeButtonPressed();
     }
 
