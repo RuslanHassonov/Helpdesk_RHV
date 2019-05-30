@@ -16,11 +16,10 @@ public class CreateEmployee {
         entityManager.getTransaction().begin();
 
         Employee employee = new Employee();
-        employee.seteId(createRandomEmployeeId());
-        employee.seteFirstName("  ");
-        employee.seteLastName("  ");
-        employee.setePhoneNumber("  ");
-        employee.seteEmail("  ");
+        employee.seteFirstName(fName);
+        employee.seteLastName(lName);
+        employee.setePhoneNumber(phoneNr);
+        employee.seteEmail(email);
 
         entityManager.persist(employee);
         entityManager.getTransaction().commit();
