@@ -14,8 +14,8 @@ public class Customer {
     private String cPhoneNumber;
     private String cEmail;
 
-    /*@ManyToOne
-    private Address cAddress;*/
+    @ManyToOne
+    private Address cAddress;
 
     /*@OneToMany(targetEntity = Ticket.class)
     private List cTicketList;*/
@@ -57,13 +57,13 @@ public class Customer {
         this.cLastName = cLastName;
     }
 
-    /*public Address getcAddress() {
+    public Address getcAddress() {
         return cAddress;
     }
 
     public void setcAddress(Address cAddress) {
         this.cAddress = cAddress;
-    }*/
+    }
 
     public String getcPhoneNumber() {
         return cPhoneNumber;

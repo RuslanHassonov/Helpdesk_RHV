@@ -16,13 +16,12 @@ public class CreateCustomer {
 
         entityManager.getTransaction().begin();
 
-        //Address address = createNewAddress(street, houseNr, city, postCode); //to be adjusted
-        //entityManager.persist(address);
+        Address address = createNewAddress(street, houseNr, city, postCode);
 
         Customer customer = new Customer();
         customer.setcFirstName(fName);
         customer.setcLastName(lName);
-        //customer.setcAddress(address); //to be adjusted
+        customer.setcAddress(address);
         customer.setcPhoneNumber(phone);
         customer.setcEmail(email);
 
@@ -32,7 +31,10 @@ public class CreateCustomer {
         emFactory.close();
     }
 
-    public static void createNewCustomer() {
+
+    //Test method
+
+    /*public static void createNewCustomer() {
         EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
         EntityManager entityManager = emFactory.createEntityManager();
 
@@ -53,5 +55,5 @@ public class CreateCustomer {
         entityManager.getTransaction().commit();
         entityManager.close();
         emFactory.close();
-    }
+    }*/
 }

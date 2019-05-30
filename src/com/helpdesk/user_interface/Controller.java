@@ -18,6 +18,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.sql.Connection;
+
+import static com.helpdesk.service.customer.FindCustomer.findExistingCustomer;
 
 public class Controller {
 
@@ -63,6 +66,8 @@ public class Controller {
     private Button btn_SearchCust;
     @FXML
     private Button btn_NewCustomer;
+    @FXML
+    private Button btn_NewEmployee;
     //</editor-fold>
 
     @FXML
@@ -92,21 +97,23 @@ public class Controller {
     private AnchorPane ap_TicketList;
     @FXML
     private AnchorPane ap_Staff;
+    @FXML
+    private AnchorPane ap_Home;
     //</editor-fold>
 
     private double xOffset = 0;
     private double yOffset = 0;
 
 
-    private ObservableList<Customer> customerDate = FXCollections.observableArrayList();
+    private ObservableList<Customer> customerData = FXCollections.observableArrayList();
 
     private void showCustomerDetails(Customer customer) {
         if (customer != null) {
             lbl_FirstName.setText(customer.getcFirstName());
             lbl_LastName.setText(customer.getcLastName());
-            //lbl_Street.setText(customer.getcAddress().getaStreet());
-            //lbl_City.setText(customer.getcAddress().getaCity());
-            //lbl_PostalCode.setText(String.valueOf(customer.getcAddress().getaPostalCode()));
+            lbl_Street.setText(customer.getcAddress().getaStreet() + " " + customer.getcAddress().getaHouseNumber());
+            lbl_City.setText(customer.getcAddress().getaCity());
+            lbl_PostalCode.setText(String.valueOf(customer.getcAddress().getaPostalCode()));
             lbl_Phone.setText(customer.getcPhoneNumber());
             lbl_Email.setText(customer.getcEmail());
         } else {
@@ -123,6 +130,7 @@ public class Controller {
     }
 
     private void screenInitialize() {
+        ap_Home.setVisible(true);
         ap_Customers.setDisable(true);
         ap_TicketList.setDisable(true);
         ap_Staff.setDisable(true);
@@ -131,10 +139,31 @@ public class Controller {
         ap_Staff.setVisible(false);
     }
 
+    private void undecoratedDraggableStage(Parent root, Stage s){
+
+        //Make undecorated window draggable/movable
+        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+
+        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                s.setX(event.getScreenX() - xOffset);
+                s.setY(event.getScreenY() - yOffset);
+            }
+        });
+
+    }
+
     @FXML
     private void initialize() {
         screenInitialize();
-        tblV_Customer.setItems(customerDate);
+        tblV_Customer.setItems(customerData);
 
         showCustomerDetails(null);
 
@@ -173,6 +202,12 @@ public class Controller {
     }
 
     @FXML
+    private void findCustomerButtonPressed() {
+        Customer customer = findExistingCustomer(Integer.parseInt(tf_CustNumber.getText()));
+        showCustomerDetails(customer);
+    }
+
+    @FXML
     private void newCustomerButtonPressed() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("newCustomer.fxml"));
@@ -180,22 +215,7 @@ public class Controller {
             Stage newCustWindow = new Stage();
             newCustWindow.initStyle(StageStyle.UNDECORATED);
 
-            //Make undecorated window draggable/movable
-            root.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    xOffset = event.getSceneX();
-                    yOffset = event.getSceneY();
-                }
-            });
-
-            root.setOnMouseDragged(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    newCustWindow.setX(event.getScreenX() - xOffset);
-                    newCustWindow.setY(event.getScreenY() - yOffset);
-                }
-            });
+            undecoratedDraggableStage(root, newCustWindow);
 
             newCustWindow.setScene(new Scene(root));
             newCustWindow.show();
@@ -204,6 +224,25 @@ public class Controller {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void newEmployeeButtonPressed(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("newEmployee.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage newCustWindow = new Stage();
+            newCustWindow.initStyle(StageStyle.UNDECORATED);
+
+            undecoratedDraggableStage(root, newCustWindow);
+
+            newCustWindow.setScene(new Scene(root));
+            newCustWindow.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     private void cancelButtonPressed() {

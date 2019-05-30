@@ -17,6 +17,7 @@ public class CreateAddress {
         address.setaHouseNumber(houseNr);
         address.setaCity(city);
         address.setaPostalCode(postCode);
+
         entityManager.persist(address);
         entityManager.getTransaction().commit();
 
@@ -27,7 +28,9 @@ public class CreateAddress {
 
     }
 
-    public static Address createNewAddress() {
+    // Test Method
+
+    /*public static Address createNewAddress() {
         EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
         EntityManager entityManager = emFactory.createEntityManager();
 
@@ -45,5 +48,5 @@ public class CreateAddress {
         emFactory.close();
 
         return address;
-    }
+    }*/
 }
