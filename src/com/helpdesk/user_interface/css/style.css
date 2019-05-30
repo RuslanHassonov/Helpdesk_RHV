@@ -92,8 +92,11 @@
     -fx-border-insets: 0 10 1 0;
 }
 
-.text-field{
+.text-field-search{
     -fx-font-family: "Segoe UI";
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #5579b2 transparent;
+    -fx-border-radius: 0;
 }
 
 .split-pane:horizontal > .split-pane-divider {

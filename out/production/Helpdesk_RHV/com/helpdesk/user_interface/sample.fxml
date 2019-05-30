@@ -287,7 +287,7 @@
                </effect></SplitPane>
             <HBox layoutX="429.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TextField fx:id="tf_CustNumber" prefHeight="30.0" prefWidth="165.0" promptText="Customer Number..." stylesheets="@css/style.css" />
+                  <TextField fx:id="tf_CustNumber" prefHeight="30.0" prefWidth="165.0" promptText="Customer Number..." styleClass="text-field-search" stylesheets="@css/style.css" />
                   <Button fx:id="btn_SearchCust" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                      <font>
                         <Font name="Segoe UI" size="13.0" />
@@ -450,7 +450,7 @@
             </SplitPane>
             <HBox layoutX="429.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TextField fx:id="tf_CustNumber1" prefHeight="30.0" prefWidth="165.0" promptText="Ticket Number..." stylesheets="@css/style.css" />
+                  <TextField fx:id="tf_CustNumber1" prefHeight="30.0" prefWidth="165.0" promptText="Ticket Number..." styleClass="text-field-search" stylesheets="@css/style.css" />
                   <Button fx:id="btn_SearchTicket" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                      <font>
                         <Font name="Segoe UI" size="13.0" />
@@ -602,7 +602,7 @@
             </SplitPane>
             <HBox layoutX="429.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TextField fx:id="tf_CustNumber11" prefHeight="30.0" prefWidth="165.0" promptText="Employee Number..." stylesheets="@css/style.css" />
+                  <TextField fx:id="tf_CustNumber11" prefHeight="30.0" prefWidth="165.0" promptText="Employee Number..." styleClass="text-field-search" stylesheets="@css/style.css" />
                   <Button fx:id="btn_SearchStaff" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                      <font>
                         <Font name="Segoe UI" size="13.0" />

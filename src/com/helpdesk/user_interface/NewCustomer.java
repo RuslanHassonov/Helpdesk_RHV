@@ -1,12 +1,10 @@
 package com.helpdesk.user_interface;
 
-import com.helpdesk.entity.Address;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import static com.helpdesk.service.address.CreateAddress.createNewAddress;
 import static com.helpdesk.service.customer.CreateCustomer.createNewCustomer;
 
 public class NewCustomer {
@@ -51,16 +49,41 @@ public class NewCustomer {
 
     @FXML
     private void confirmButtonPressed(){
-        String fName = tf_NewCustFirstName.getText();
-        String lName = tf_NewCustLastName.getText();
-        Address address = createNewAddress(tf_NewCustStreet.getText(),
-                                           Integer.getInteger(tf_NewCustHouseNr.getText()),
-                                           tf_NewCustCity.getText(),
-                                           Integer.getInteger(tf_NewCustPostCode.getText()));
-        String phone = tf_NewCustPhone.getText();
-        String email = tf_NewCustEmail.getText();
 
-        createNewCustomer(fName, lName, address, phone, email);
+        try {
+            /*validateTextField();
+            String fName = tf_NewCustFirstName.getText();
+            String lName = tf_NewCustLastName.getText();
+            String street = tf_NewCustStreet.getText();
+            int houseNr = Integer.getInteger(tf_NewCustHouseNr.getText());
+            int postCode = Integer.getInteger(tf_NewCustPostCode.getText());
+            String city = tf_NewCustCity.getText();
+            String phone = tf_NewCustPhone.getText();
+            String email = tf_NewCustEmail.getText();*/
+
+            createNewCustomer();
+
+        }  catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+
+          }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void validateTextField(){
+        if ((tf_NewCustFirstName.getText() == null) ||
+            (tf_NewCustLastName.getText() == null)  ||
+            (tf_NewCustStreet.getText() == null)    ||
+            (tf_NewCustHouseNr.getText() == null)   ||
+            (tf_NewCustPostCode.getText() == null)  ||
+            (tf_NewCustCity.getText() == null)      ||
+            (tf_NewCustPhone.getText() == null)     ||
+            (tf_NewCustEmail.getText() == null))
+        {
+            throw new IllegalArgumentException("All fields must be filled in correctly.");
+        }
     }
 
 
