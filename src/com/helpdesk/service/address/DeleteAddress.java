@@ -8,7 +8,7 @@ import javax.persistence.Persistence;
 
 public class DeleteAddress {
     @SuppressWarnings("Duplicates")
-    public static void deleteExistingAddress(){
+    public static void deleteExistingAddress() {
         EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
         EntityManager entityManager = emFactory.createEntityManager();
 

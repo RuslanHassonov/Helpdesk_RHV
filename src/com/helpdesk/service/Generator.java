@@ -11,10 +11,10 @@ public class Generator {
         return getRandomNumberInRange(6000, 9999);
     }
 
-    public static String createRandomEmployeeRole(){
+    public static String createRandomEmployeeRole() {
         RoleEnum role = getRandomEmployeeRole();
 
-        switch (role){
+        switch (role) {
             case MANAGER:
                 return "MNG";
             case DISPATCHER:
@@ -27,15 +27,15 @@ public class Generator {
     }
 
     private static RoleEnum getRandomEmployeeRole() {
-        RoleEnum[] role =  RoleEnum.values();
+        RoleEnum[] role = RoleEnum.values();
         Random random = new Random();
 
         return role[random.nextInt(role.length)];
     }
 
-    private static int getRandomNumberInRange(int min, int max){
+    private static int getRandomNumberInRange(int min, int max) {
         Random random = new Random();
-        if (min == 0 && max == 0){
+        if (min == 0 && max == 0) {
             return random.nextInt();
         } else {
             return random.nextInt((max - min) + 1) + min;

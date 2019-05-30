@@ -37,6 +37,7 @@ public class CreateAddress {
         address.setaHouseNumber(321);
         address.setaCity("LEUVEN");
         address.setaPostalCode(3000);
+
         entityManager.persist(address);
         entityManager.getTransaction().commit();
 

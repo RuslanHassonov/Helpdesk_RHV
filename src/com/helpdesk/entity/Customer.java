@@ -13,10 +13,12 @@ public class Customer {
     private String cLastName;
     private String cPhoneNumber;
     private String cEmail;
-    @ManyToOne
-    private Address cAddress;
-    @OneToMany(targetEntity = Ticket.class)
-    private List cTicketList;
+
+    /*@ManyToOne
+    private Address cAddress;*/
+
+    /*@OneToMany(targetEntity = Ticket.class)
+    private List cTicketList;*/
 
     public Customer(int cId, String cFirstName, String cLastName, String cPhoneNumber, String cEmail) {
         super();
@@ -55,13 +57,13 @@ public class Customer {
         this.cLastName = cLastName;
     }
 
-    public Address getcAddress() {
+    /*public Address getcAddress() {
         return cAddress;
     }
 
     public void setcAddress(Address cAddress) {
         this.cAddress = cAddress;
-    }
+    }*/
 
     public String getcPhoneNumber() {
         return cPhoneNumber;
@@ -79,11 +81,11 @@ public class Customer {
         this.cEmail = cEmail;
     }
 
-    public List getcTicketList() {
+    /*public List getcTicketList() {
         return cTicketList;
     }
 
     public void setcTicketList(List cTicketList) {
         this.cTicketList = cTicketList;
-    }
+    }*/
 }

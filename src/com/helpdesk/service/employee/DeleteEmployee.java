@@ -8,7 +8,7 @@ import javax.persistence.Persistence;
 
 public class DeleteEmployee {
     @SuppressWarnings("Duplicates")
-    public static void deleteExistingEmployee(){
+    public static void deleteExistingEmployee() {
         EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
         EntityManager entityManager = emFactory.createEntityManager();
 

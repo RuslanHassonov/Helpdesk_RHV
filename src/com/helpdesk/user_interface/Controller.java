@@ -17,7 +17,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class Controller {
@@ -105,9 +104,9 @@ public class Controller {
         if (customer != null) {
             lbl_FirstName.setText(customer.getcFirstName());
             lbl_LastName.setText(customer.getcLastName());
-            lbl_Street.setText(customer.getcAddress().getaStreet());
-            lbl_City.setText(customer.getcAddress().getaCity());
-            lbl_PostalCode.setText(String.valueOf(customer.getcAddress().getaPostalCode()));
+            //lbl_Street.setText(customer.getcAddress().getaStreet());
+            //lbl_City.setText(customer.getcAddress().getaCity());
+            //lbl_PostalCode.setText(String.valueOf(customer.getcAddress().getaPostalCode()));
             lbl_Phone.setText(customer.getcPhoneNumber());
             lbl_Email.setText(customer.getcEmail());
         } else {

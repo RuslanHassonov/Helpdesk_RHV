@@ -1,43 +1,43 @@
-.root{
+.root {
     -fx-background-color: #ededed;
 }
 
-.button
-{
+.button {
     -fx-background-color: transparent;
 
 }
 
-.topBtn{
+.topBtn {
     -fx-background-color: transparent;
     -fx-background-radius: 0;
 
 }
 
-.crudBtn{
+.crudBtn {
     -fx-background-color: #5579b2;
     -fx-background-radius: 0;
     -fx-padding: 7;
     -fx-text-fill: #ededed;
 }
-.button:hover, .crudBtn:hover{
+
+.button:hover, .crudBtn:hover {
     -fx-background-color: #5173AA;
 
 }
 
-.button:pressed, .crudBtn:pressed{
+.button:pressed, .crudBtn:pressed {
     -fx-background-color: #6683B4;
 }
 
-.topBtn:hover{
+.topBtn:hover {
     -fx-background-color: #DADADA;
 }
 
-.topBtnClose:hover{
+.topBtnClose:hover {
     -fx-background-color: #AF6766;
 }
 
-.topBtn:pressed{
+.topBtn:pressed {
     -fx-background-color: #6683B4;
 }
 
@@ -59,11 +59,7 @@
     -fx-size: 35;
     -fx-border-width: 0 0 1 0;
     -fx-background-color: transparent;
-    -fx-border-color:
-            transparent
-            transparent
-            derive(-fx-base, 80%)
-            transparent;
+    -fx-border-color: transparent transparent derive(-fx-base, 80%) transparent;
     -fx-border-insets: 0 10 1 0;
 }
 
@@ -75,7 +71,7 @@
     -fx-opacity: 1;
 }
 
-.label-header{
+.label-header {
     -fx-base: #5579b2;
     -fx-font-size: 20pt;
     -fx-font-family: "Segoe UI Light";
@@ -84,15 +80,11 @@
     -fx-opacity: 1;
     -fx-border-width: 0 0 1 0;
     -fx-background-color: transparent;
-    -fx-border-color:
-            transparent
-            transparent
-            derive(-fx-base, 80%)
-            transparent;
+    -fx-border-color: transparent transparent derive(-fx-base, 80%) transparent;
     -fx-border-insets: 0 10 1 0;
 }
 
-.text-field-search{
+.text-field-search {
     -fx-font-family: "Segoe UI";
     -fx-background-color: transparent;
     -fx-border-color: transparent transparent #5579b2 transparent;
@@ -105,7 +97,7 @@
     -fx-background-color: transparent;
 }
 
-.label-detail{
+.label-detail {
     -fx-text-fill: #808080;
 }
 
