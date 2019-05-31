@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table
-@Inheritance
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Employee {
 
     @Id

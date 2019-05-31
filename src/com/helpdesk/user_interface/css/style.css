@@ -101,3 +101,9 @@
     -fx-text-fill: #808080;
 }
 
+.combo-box {
+    -fx-border-radius: 0;
+    -fx-background-color: transparent;
+
+}
+

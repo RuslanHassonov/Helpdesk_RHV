@@ -2,6 +2,7 @@ package com.helpdesk.user_interface;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -22,11 +23,26 @@ public class NewEmployeeWin {
     @FXML
     private TextField tf_NewEmpEmail;
 
+
     @FXML
     private Button btn_NewEmpConfirm;
 
     @FXML
     private Button btn_NewEmpCancel;
+
+    @FXML
+    private ComboBox cb_empRole;
+
+
+    @FXML
+    private void initialize(){
+        cb_empRole.getItems().addAll(
+                "Manager",
+                "Technician",
+                "Dispatcher"
+        );
+    }
+
 
 
     @FXML
@@ -40,13 +56,14 @@ public class NewEmployeeWin {
     private void confirmButtonPressed() {
 
         try {
-            validateTextField();
+            validateInputField();
             String fName = tf_NewEmpFirstName.getText();
             String lName = tf_NewEmpLastName.getText();
-           String phone = tf_NewEmpPhone.getText();
+            String phone = tf_NewEmpPhone.getText();
             String email = tf_NewEmpEmail.getText();
+            String role = cb_empRole.getValue().toString();
 
-            createNewEmployee(fName, lName, phone, email);
+            createNewEmployee(fName, lName, phone, email, role);
             //createNewCustomer();
 
             JOptionPane.showMessageDialog(new JFrame(), "New employee succesfully created");
@@ -61,12 +78,16 @@ public class NewEmployeeWin {
     }
 
     @FXML
-    private void validateTextField() {
+    private void validateInputField() {
         if ((tf_NewEmpFirstName.getText() == null) ||
                 (tf_NewEmpLastName.getText() == null) ||
                 (tf_NewEmpPhone.getText() == null) ||
                 (tf_NewEmpEmail.getText() == null)) {
             throw new IllegalArgumentException("All fields must be filled in correctly.");
+        }
+
+        if(cb_empRole.getValue().toString().isEmpty()){
+            throw new IllegalArgumentException("Please choose a role.");
         }
     }
 
@@ -76,5 +97,6 @@ public class NewEmployeeWin {
         tf_NewEmpPhone.clear();
         tf_NewEmpLastName.clear();
         tf_NewEmpFirstName.clear();
+        cb_empRole.setValue(null);
     }
 }

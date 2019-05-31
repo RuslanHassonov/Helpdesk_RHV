@@ -9,9 +9,11 @@ public class Manager extends Employee {
 
     public Manager(int eId, String eFirstName, String eLastName, String ePhoneNumber, String eEmail) {
         super(eId, eFirstName, eLastName, ePhoneNumber, eEmail);
+
     }
 
     public Manager() {
         super();
     }
+
 }
