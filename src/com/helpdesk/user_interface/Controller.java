@@ -4,6 +4,7 @@ import com.helpdesk.entity.Customer;
 import com.helpdesk.entity.Employee;
 import com.helpdesk.entity.Ticket;
 import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -12,15 +13,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.sql.Connection;
 
 import static com.helpdesk.service.customer.FindCustomer.findExistingCustomer;
+import static com.helpdesk.service.customer.ReadCustomerData.readCustomerData;
 
 public class Controller {
 
@@ -106,6 +108,8 @@ public class Controller {
 
 
     private ObservableList<Customer> customerData = FXCollections.observableArrayList();
+    private ObservableList<Employee> employeeData = FXCollections.observableArrayList();
+    private ObservableList<Ticket> ticketData = FXCollections.observableArrayList();
 
     private void showCustomerDetails(Customer customer) {
         if (customer != null) {
@@ -139,7 +143,7 @@ public class Controller {
         ap_Staff.setVisible(false);
     }
 
-    private void undecoratedDraggableStage(Parent root, Stage s){
+    private void undecoratedDraggableStage(Parent root, Stage s) {
 
         //Make undecorated window draggable/movable
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -157,14 +161,24 @@ public class Controller {
                 s.setY(event.getScreenY() - yOffset);
             }
         });
+    }
 
+    private void populateTableView() {
+        try {
+            customerData.addAll(readCustomerData());
+            for (Customer i : customerData) {
+                tblC_CustomerNr.setCellValueFactory(c -> new SimpleStringProperty(new String(String.valueOf(i.getcId()))));
+                tblC_CustFullName.setCellValueFactory(c -> new SimpleStringProperty(new String(i.getcFirstName() + " " + i.getcLastName())));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void initialize() {
         screenInitialize();
-        tblV_Customer.setItems(customerData);
-
+        populateTableView();
         showCustomerDetails(null);
 
         tblV_Customer.getSelectionModel().selectedItemProperty().addListener(
@@ -210,7 +224,7 @@ public class Controller {
     @FXML
     private void newCustomerButtonPressed() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("newCustomer.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("windows/newCustomer.fxml"));
             Parent root = fxmlLoader.load();
             Stage newCustWindow = new Stage();
             newCustWindow.initStyle(StageStyle.UNDECORATED);
@@ -226,9 +240,9 @@ public class Controller {
     }
 
     @FXML
-    private void newEmployeeButtonPressed(){
+    private void newEmployeeButtonPressed() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("newEmployee.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("windows/newEmployee.fxml"));
             Parent root = fxmlLoader.load();
             Stage newCustWindow = new Stage();
             newCustWindow.initStyle(StageStyle.UNDECORATED);

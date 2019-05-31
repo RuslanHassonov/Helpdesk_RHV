@@ -1,4 +1,4 @@
-package com.helpdesk.user_interface;
+package com.helpdesk.user_interface.windows;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

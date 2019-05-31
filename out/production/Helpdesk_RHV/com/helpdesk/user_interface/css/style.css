@@ -43,7 +43,6 @@
 
 .table-view {
     -fx-base: #5579b2;
-    -fx-control-inner-background: #1d1d1d;
     -fx-font-weight: none;
     -fx-background-color: transparent;
     -fx-table-cell-border-color: transparent;
