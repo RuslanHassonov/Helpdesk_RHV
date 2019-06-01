@@ -3,6 +3,7 @@ package com.helpdesk.user_interface;
 import com.helpdesk.entity.Customer;
 import com.helpdesk.entity.Employee;
 import com.helpdesk.entity.Ticket;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -224,19 +225,6 @@ public class Controller {
         }
     }
 
-    private void newButtonPressedHandling(String window) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("windows/" + window + ".fxml"));
-        Parent root = fxmlLoader.load();
-        Stage s = new Stage();
-        s.initStyle(StageStyle.UNDECORATED);
-
-        undecoratedDraggableStage(root, s);
-
-        s.setScene(new Scene(root));
-        s.show();
-    }
-
-
     @FXML
     private void minimizeButtonPressed() {
         Stage stage = (Stage) btn_Minimize.getScene().getWindow();
@@ -249,6 +237,8 @@ public class Controller {
     }
 
 
+
+    //<editor-fold desc="details">
     private void showCustomerDetails(Customer customer) {
         if (customer != null) {
             lbl_FirstName.setText(customer.getcFirstName());
@@ -320,6 +310,7 @@ public class Controller {
             lbl_EmployeeEmail.setText("");
         }
     }
+    //</editor-fold>
 
     private void screenInitialize() {
         ap_Home.setVisible(true);
@@ -367,6 +358,19 @@ public class Controller {
             e.printStackTrace();
         }
     }
+
+    private void newButtonPressedHandling(String window) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("windows/" + window + ".fxml"));
+        Parent root = fxmlLoader.load();
+        Stage s = new Stage();
+        s.initStyle(StageStyle.UNDECORATED);
+
+        undecoratedDraggableStage(root, s);
+
+        s.setScene(new Scene(root));
+        s.show();
+    }
+
 
 
 }

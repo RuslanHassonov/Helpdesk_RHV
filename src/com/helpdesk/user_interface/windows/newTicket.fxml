@@ -31,7 +31,7 @@
                     <graphic>
                         <ImageView fitHeight="33.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../icons/outline_person_add_white_36dpx2.png" />
+                                <Image url="@../icons/sharp_view_list_white_24dpx2.png" />
                             </image>
                         </ImageView>
                     </graphic>
