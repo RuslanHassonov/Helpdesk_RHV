@@ -467,32 +467,32 @@
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_TicketNr" text="Label" GridPane.columnIndex="1">
+                                        <Label fx:id="lbl_TicketNr" GridPane.columnIndex="1">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_TicketStatus" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                        <Label fx:id="lbl_TicketStatus" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_TicketPriority" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Label fx:id="lbl_TicketPriority" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_TicketAssigned" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                        <Label fx:id="lbl_TicketAssigned" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_TicketDate" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                        <Label fx:id="lbl_TicketDate" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_TicketDescription" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                        <Label fx:id="lbl_TicketDescription" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
@@ -553,7 +553,7 @@
                 </HBox>
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="ap_Staff" layoutX="270.0" layoutY="66.0" prefHeight="470.0" prefWidth="650.0" stylesheets="@css/style.css" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="65.0">
+        <AnchorPane fx:id="ap_Staff" layoutX="270.0" layoutY="66.0" prefHeight="470.0" prefWidth="650.0" stylesheets="@css/style.css" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="65.0">
             <children>
             <Pane prefHeight="69.0" prefWidth="263.0" style="-fx-background-color: #5579b2; -fx-background-radius: 0 15 15 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -580,8 +580,8 @@
                             <children>
                                 <TableView fx:id="tblV_Employee" layoutX="57.0" layoutY="71.0" prefHeight="360.0" prefWidth="314.0" stylesheets="@css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <columns>
-                                        <TableColumn fx:id="tblC_EmplNr" prefWidth="75.0" text="Employee N°" />
-                                        <TableColumn fx:id="tblC_EmplFullName" prefWidth="75.0" text="Full Name" />
+                                        <TableColumn fx:id="tblC_EmplNr" editable="false" prefWidth="75.0" text="Employee N°" />
+                                        <TableColumn fx:id="tblC_EmplFullName" editable="false" prefWidth="75.0" text="Full Name" />
                                     </columns>
                                     <columnResizePolicy>
                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -641,27 +641,27 @@
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_EmployeeFirstName" text="Label" GridPane.columnIndex="1">
+                                        <Label fx:id="lbl_EmployeeFirstName" GridPane.columnIndex="1">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_EmployeeLastName" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                        <Label fx:id="lbl_EmployeeLastName" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_EmployeeRole" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                        <Label fx:id="lbl_EmployeeRole" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_EmployeePhone" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Label fx:id="lbl_EmployeePhone" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_EmployeeEmail" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                        <Label fx:id="lbl_EmployeeEmail" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>

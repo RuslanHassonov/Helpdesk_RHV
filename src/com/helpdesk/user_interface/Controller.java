@@ -13,7 +13,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -23,6 +22,7 @@ import java.io.IOException;
 
 import static com.helpdesk.service.customer.FindCustomer.findExistingCustomer;
 import static com.helpdesk.service.customer.ReadCustomerData.readCustomerData;
+import static com.helpdesk.service.employee.ReadEmployeeData.readEmployeeData;
 
 public class Controller {
 
@@ -90,6 +90,16 @@ public class Controller {
     private Label lbl_Phone;
     @FXML
     private Label lbl_Email;
+    @FXML
+    private Label lbl_EmployeeFirstName;
+    @FXML
+    private Label lbl_EmployeeLastName;
+    @FXML
+    private Label lbl_EmployeePhone;
+    @FXML
+    private Label lbl_EmployeeEmail;
+    @FXML
+    private Label lbl_EmployeeRole;
     //</editor-fold>
 
     //<editor-fold desc="anchor-pane definition">
@@ -133,6 +143,30 @@ public class Controller {
         }
     }
 
+    private void showEmployeeDetails(Employee employee) {
+        if (employee != null) {
+            lbl_EmployeeFirstName.setText(employee.geteFirstName());
+            lbl_EmployeeLastName.setText(employee.geteLastName());
+            lbl_EmployeePhone.setText(employee.getePhoneNumber());
+            lbl_EmployeeEmail.setText(employee.geteEmail());
+
+            switch (employee.getClass().getSimpleName()) {
+                case "Manager":
+                    lbl_EmployeeRole.setText("Manager");
+                    break;
+                case "Technician":
+                    lbl_EmployeeRole.setText("Technician");
+                    break;
+                case "Dispatcher":
+                    lbl_EmployeeRole.setText("Dispatcher");
+                    break;
+                default:
+                    lbl_EmployeeRole.setText("Employee");
+                    break;
+            }
+        }
+    }
+
     private void screenInitialize() {
         ap_Home.setVisible(true);
         ap_Customers.setDisable(true);
@@ -166,10 +200,15 @@ public class Controller {
     private void populateTableView() {
         try {
             customerData.addAll(readCustomerData());
-            for (Customer i : customerData) {
-                tblC_CustomerNr.setCellValueFactory(c -> new SimpleStringProperty(new String(String.valueOf(i.getcId()))));
-                tblC_CustFullName.setCellValueFactory(c -> new SimpleStringProperty(new String(i.getcFirstName() + " " + i.getcLastName())));
-            }
+            tblC_CustomerNr.setCellValueFactory(c -> new SimpleStringProperty(String.valueOf(c.getValue().getcId())));
+            tblC_CustFullName.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getcFirstName() + " " + c.getValue().getcLastName()));
+            tblV_Customer.setItems(customerData);
+
+            employeeData.addAll(readEmployeeData());
+            tblC_EmplNr.setCellValueFactory(e -> new SimpleStringProperty(String.valueOf(e.getValue().geteId())));
+            tblC_EmplFullName.setCellValueFactory(e -> new SimpleStringProperty(e.getValue().geteFirstName() + " " + e.getValue().geteLastName()));
+            tblV_Employee.setItems(employeeData);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -185,6 +224,12 @@ public class Controller {
                 (observableValue, oldValue, newValue) -> {
                     showCustomerDetails(newValue);
                 }
+        );
+
+        tblV_Employee.getSelectionModel().selectedItemProperty().addListener(
+                ((observableValue, oldValue, newValue) -> {
+                    showEmployeeDetails(newValue);
+                })
         );
 
     }

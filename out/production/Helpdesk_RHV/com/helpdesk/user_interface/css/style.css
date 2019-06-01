@@ -42,7 +42,7 @@
 }
 
 .table-view {
-    -fx-base: #5579b2;
+    -fx-base: #ededed;
     -fx-font-weight: none;
     -fx-background-color: transparent;
     -fx-table-cell-border-color: transparent;
@@ -55,6 +55,7 @@
 }
 
 .table-view .column-header, .table-view .filler {
+    -fx-base: #5579b2;
     -fx-size: 35;
     -fx-border-width: 0 0 1 0;
     -fx-background-color: transparent;

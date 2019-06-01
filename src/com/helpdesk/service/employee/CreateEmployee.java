@@ -9,8 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import static com.helpdesk.service.Generator.createRandomEmployeeId;
-
 public class CreateEmployee {
     public static void createNewEmployee(String fName, String lName, String phoneNr, String email, String role) {
         EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
