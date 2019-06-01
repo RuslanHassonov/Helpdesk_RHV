@@ -1,4 +1,4 @@
-package com.helpdesk.service.customer;
+package com.helpdesk.service.ticket;
 
 import com.helpdesk.entity.Customer;
 
@@ -8,14 +8,14 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.List;
 
-public class ReadCustomerData {
+public class ReadTicketData {
 
-    public static List<Customer> readCustomerData() {
+    public static List<Customer> readTicketData() {
         EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
         EntityManager entityManager = emFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
-        Query query = entityManager.createQuery("Select c from Customer c");
+        Query query = entityManager.createQuery("Select t from Ticket t");
 
         @SuppressWarnings("unchecked")
         List<Customer> list = query.getResultList();

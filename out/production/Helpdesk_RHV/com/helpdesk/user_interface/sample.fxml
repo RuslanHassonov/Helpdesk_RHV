@@ -348,6 +348,15 @@
                 </SplitPane>
                 <HBox layoutX="429.0" layoutY="75.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="75.0">
                     <children>
+                  <Button mnemonicParsing="false" styleClass="topBtn" stylesheets="@css/style.css">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/outline_refresh_black_24dpx2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                         <TextField fx:id="tf_CustNumber" prefHeight="30.0" prefWidth="165.0" promptText="Customer Number..." styleClass="text-field-search" stylesheets="@css/style.css" />
                         <Button fx:id="btn_SearchCust" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#findCustomerButtonPressed" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                             <font>
@@ -467,32 +476,32 @@
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_TicketNr" GridPane.columnIndex="1">
+                                        <Label fx:id="lbl_TicketNr" text="Label" GridPane.columnIndex="1">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_TicketStatus" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                        <Label fx:id="lbl_TicketStatus" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_TicketPriority" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Label fx:id="lbl_TicketPriority" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_TicketAssigned" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                        <Label fx:id="lbl_TicketAssigned" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_TicketDate" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                        <Label fx:id="lbl_TicketDate" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_TicketDescription" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                        <Label fx:id="lbl_TicketDescription" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
@@ -501,7 +510,7 @@
                                 </GridPane>
                                 <HBox layoutX="111.0" layoutY="240.0" spacing="4.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                     <children>
-                                        <Button mnemonicParsing="false" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="New...">
+                                        <Button fx:id="btn_NewTicket" mnemonicParsing="false" onAction="#newTicketButtonPressed" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="New...">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
@@ -528,8 +537,17 @@
                         <DropShadow blurType="GAUSSIAN" color="#00000026" offsetY="2.0" />
                     </effect>
                 </SplitPane>
-                <HBox layoutX="429.0" layoutY="70.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="70.0">
+                <HBox layoutX="429.0" layoutY="75.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="75.0">
                     <children>
+                  <Button mnemonicParsing="false" styleClass="topBtn" stylesheets="@css/style.css">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/outline_refresh_black_24dpx2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                         <TextField fx:id="tf_CustNumber1" prefHeight="30.0" prefWidth="165.0" promptText="Ticket Number..." styleClass="text-field-search" stylesheets="@css/style.css" />
                         <Button fx:id="btn_SearchTicket" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                             <font>
@@ -553,7 +571,7 @@
                 </HBox>
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="ap_Staff" layoutX="270.0" layoutY="66.0" prefHeight="470.0" prefWidth="650.0" stylesheets="@css/style.css" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="65.0">
+        <AnchorPane fx:id="ap_Staff" layoutX="270.0" layoutY="66.0" prefHeight="470.0" prefWidth="650.0" stylesheets="@css/style.css" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="65.0">
             <children>
             <Pane prefHeight="69.0" prefWidth="263.0" style="-fx-background-color: #5579b2; -fx-background-radius: 0 15 15 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -641,27 +659,27 @@
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_EmployeeFirstName" GridPane.columnIndex="1">
+                                        <Label fx:id="lbl_EmployeeFirstName" text="Label" GridPane.columnIndex="1">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_EmployeeLastName" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                        <Label fx:id="lbl_EmployeeLastName" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_EmployeeRole" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                        <Label fx:id="lbl_EmployeeRole" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_EmployeePhone" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Label fx:id="lbl_EmployeePhone" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lbl_EmployeeEmail" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                        <Label fx:id="lbl_EmployeeEmail" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
@@ -697,8 +715,17 @@
                         <DropShadow blurType="GAUSSIAN" color="#00000026" offsetY="2.0" />
                     </effect>
                 </SplitPane>
-                <HBox layoutX="429.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="75.0">
+                <HBox layoutX="429.0" layoutY="75.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="75.0">
                     <children>
+                  <Button mnemonicParsing="false" styleClass="topBtn" stylesheets="@css/style.css">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/outline_refresh_black_24dpx2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                         <TextField fx:id="tf_CustNumber11" prefHeight="30.0" prefWidth="165.0" promptText="Employee Number..." styleClass="text-field-search" stylesheets="@css/style.css" />
                         <Button fx:id="btn_SearchStaff" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                             <font>

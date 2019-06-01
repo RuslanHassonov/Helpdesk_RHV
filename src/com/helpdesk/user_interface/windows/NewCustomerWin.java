@@ -92,7 +92,7 @@ public class NewCustomerWin {
     }
 
     @FXML
-    private void clearInputFields(){
+    private void clearInputFields() {
         tf_NewCustEmail.clear();
         tf_NewCustPhone.clear();
         tf_NewCustCity.clear();

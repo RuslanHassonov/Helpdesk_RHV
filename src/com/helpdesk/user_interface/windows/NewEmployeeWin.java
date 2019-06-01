@@ -35,14 +35,13 @@ public class NewEmployeeWin {
 
 
     @FXML
-    private void initialize(){
+    private void initialize() {
         cb_empRole.getItems().addAll(
                 "Manager",
                 "Technician",
                 "Dispatcher"
         );
     }
-
 
 
     @FXML
@@ -86,13 +85,13 @@ public class NewEmployeeWin {
             throw new IllegalArgumentException("All fields must be filled in correctly.");
         }
 
-        if(cb_empRole.getValue().toString().isEmpty()){
+        if (cb_empRole.getValue().toString().isEmpty()) {
             throw new IllegalArgumentException("Please choose a role.");
         }
     }
 
     @FXML
-    private void clearInputFields(){
+    private void clearInputFields() {
         tf_NewEmpEmail.clear();
         tf_NewEmpPhone.clear();
         tf_NewEmpLastName.clear();

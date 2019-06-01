@@ -70,6 +70,8 @@ public class Controller {
     private Button btn_NewCustomer;
     @FXML
     private Button btn_NewEmployee;
+    @FXML
+    private Button btn_NewTicket;
     //</editor-fold>
 
     @FXML
@@ -100,6 +102,18 @@ public class Controller {
     private Label lbl_EmployeeEmail;
     @FXML
     private Label lbl_EmployeeRole;
+    @FXML
+    private Label lbl_TicketDescription;
+    @FXML
+    private Label lbl_TicketNr;
+    @FXML
+    private Label lbl_TicketStatus;
+    @FXML
+    private Label lbl_TicketPriority;
+    @FXML
+    private Label lbl_TicketAssigned;
+    @FXML
+    private Label lbl_TicketDate;
     //</editor-fold>
 
     //<editor-fold desc="anchor-pane definition">
@@ -121,6 +135,120 @@ public class Controller {
     private ObservableList<Employee> employeeData = FXCollections.observableArrayList();
     private ObservableList<Ticket> ticketData = FXCollections.observableArrayList();
 
+    @FXML
+    private void initialize() {
+        screenInitialize();
+        populateTableView();
+        showCustomerDetails(null);
+        showEmployeeDetails(null);
+        showTicketDetails(null);
+
+        tblV_Customer.getSelectionModel().selectedItemProperty().addListener(
+                (observableValue, oldValue, newValue) -> {
+                    showCustomerDetails(newValue);
+                }
+        );
+
+        tblV_Employee.getSelectionModel().selectedItemProperty().addListener(
+                ((observableValue, oldValue, newValue) -> {
+                    showEmployeeDetails(newValue);
+                })
+        );
+
+        tblV_TicketListTable.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> {
+                    showTicketDetails(newValue);
+                }
+        );
+
+    }
+
+    @FXML
+    private void homeButtonPressed() {
+        screenInitialize();
+    }
+
+    @FXML
+    private void customersButtonPressed() {
+        screenInitialize();
+        ap_Customers.setDisable(false);
+        ap_Customers.setVisible(true);
+    }
+
+    @FXML
+    private void ticketsButtonPressed() {
+        screenInitialize();
+        ap_TicketList.setDisable(false);
+        ap_TicketList.setVisible(true);
+    }
+
+    @FXML
+    private void staffButtonPressed() {
+        screenInitialize();
+        ap_Staff.setDisable(false);
+        ap_Staff.setVisible(true);
+    }
+
+    @FXML
+    private void findCustomerButtonPressed() {
+        Customer customer = findExistingCustomer(Integer.parseInt(tf_CustNumber.getText()));
+        showCustomerDetails(customer);
+    }
+
+    @FXML
+    private void newCustomerButtonPressed() {
+        try {
+            newButtonPressedHandling("newCustomer");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void newEmployeeButtonPressed() {
+        try {
+            newButtonPressedHandling("newEmployee");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void newTicketButtonPressed() {
+        try {
+            newButtonPressedHandling("newTicket");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void newButtonPressedHandling(String window) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("windows/" + window + ".fxml"));
+        Parent root = fxmlLoader.load();
+        Stage s = new Stage();
+        s.initStyle(StageStyle.UNDECORATED);
+
+        undecoratedDraggableStage(root, s);
+
+        s.setScene(new Scene(root));
+        s.show();
+    }
+
+
+    @FXML
+    private void minimizeButtonPressed() {
+        Stage stage = (Stage) btn_Minimize.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @FXML
+    private void closeButtonPressed() {
+        Platform.exit();
+    }
+
+
     private void showCustomerDetails(Customer customer) {
         if (customer != null) {
             lbl_FirstName.setText(customer.getcFirstName());
@@ -140,6 +268,26 @@ public class Controller {
             lbl_Phone.setText("");
             lbl_Email.setText("");
 
+        }
+    }
+
+    private void showTicketDetails(Ticket ticket) {
+        if (ticket != null){
+            lbl_TicketNr.setText("");
+            lbl_TicketPriority.setText("");
+            lbl_TicketStatus.setText("");
+            lbl_TicketAssigned.setText("");
+            lbl_TicketDate.setText("");
+            lbl_TicketDescription.setText("");
+
+        } else {
+
+            lbl_TicketNr.setText("");
+            lbl_TicketPriority.setText("");
+            lbl_TicketStatus.setText("");
+            lbl_TicketAssigned.setText("");
+            lbl_TicketDate.setText("");
+            lbl_TicketDescription.setText("");
         }
     }
 
@@ -164,6 +312,12 @@ public class Controller {
                     lbl_EmployeeRole.setText("Employee");
                     break;
             }
+        } else {
+            lbl_EmployeeRole.setText("");
+            lbl_EmployeeFirstName.setText("");
+            lbl_EmployeeLastName.setText("");
+            lbl_EmployeePhone.setText("");
+            lbl_EmployeeEmail.setText("");
         }
     }
 
@@ -214,110 +368,5 @@ public class Controller {
         }
     }
 
-    @FXML
-    private void initialize() {
-        screenInitialize();
-        populateTableView();
-        showCustomerDetails(null);
-
-        tblV_Customer.getSelectionModel().selectedItemProperty().addListener(
-                (observableValue, oldValue, newValue) -> {
-                    showCustomerDetails(newValue);
-                }
-        );
-
-        tblV_Employee.getSelectionModel().selectedItemProperty().addListener(
-                ((observableValue, oldValue, newValue) -> {
-                    showEmployeeDetails(newValue);
-                })
-        );
-
-    }
-
-    @FXML
-    private void homeButtonPressed() {
-        screenInitialize();
-    }
-
-    @FXML
-    private void customersButtonPressed() {
-        screenInitialize();
-        ap_Customers.setDisable(false);
-        ap_Customers.setVisible(true);
-    }
-
-    @FXML
-    private void ticketsButtonPressed() {
-        screenInitialize();
-        ap_TicketList.setDisable(false);
-        ap_TicketList.setVisible(true);
-    }
-
-    @FXML
-    private void staffButtonPressed() {
-        screenInitialize();
-        ap_Staff.setDisable(false);
-        ap_Staff.setVisible(true);
-    }
-
-    @FXML
-    private void findCustomerButtonPressed() {
-        Customer customer = findExistingCustomer(Integer.parseInt(tf_CustNumber.getText()));
-        showCustomerDetails(customer);
-    }
-
-    @FXML
-    private void newCustomerButtonPressed() {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("windows/newCustomer.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage newCustWindow = new Stage();
-            newCustWindow.initStyle(StageStyle.UNDECORATED);
-
-            undecoratedDraggableStage(root, newCustWindow);
-
-            newCustWindow.setScene(new Scene(root));
-            newCustWindow.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void newEmployeeButtonPressed() {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("windows/newEmployee.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage newCustWindow = new Stage();
-            newCustWindow.initStyle(StageStyle.UNDECORATED);
-
-            undecoratedDraggableStage(root, newCustWindow);
-
-            newCustWindow.setScene(new Scene(root));
-            newCustWindow.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    @FXML
-    private void cancelButtonPressed() {
-        closeButtonPressed();
-    }
-
-
-    @FXML
-    private void minimizeButtonPressed() {
-        Stage stage = (Stage) btn_Minimize.getScene().getWindow();
-        stage.setIconified(true);
-    }
-
-    @FXML
-    private void closeButtonPressed() {
-        Platform.exit();
-    }
 
 }

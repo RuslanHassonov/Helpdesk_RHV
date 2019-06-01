@@ -1,6 +1,5 @@
 package com.helpdesk.service.employee;
 
-import com.helpdesk.entity.Customer;
 import com.helpdesk.entity.Employee;
 
 import javax.persistence.EntityManager;
@@ -11,7 +10,7 @@ import java.util.List;
 
 public class ReadEmployeeData {
 
-    public static List<Employee> readEmployeeData(){
+    public static List<Employee> readEmployeeData() {
         EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
         EntityManager entityManager = emFactory.createEntityManager();
 

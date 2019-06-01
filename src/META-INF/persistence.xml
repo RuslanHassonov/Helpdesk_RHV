@@ -11,9 +11,10 @@
         <class>com.helpdesk.entity.Manager</class>
         <class>com.helpdesk.entity.Technician</class>
         <class>com.helpdesk.entity.Dispatcher</class>
-        
+
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/helpdesk?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/helpdesk?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="Spiderman5"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
