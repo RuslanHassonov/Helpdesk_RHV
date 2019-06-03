@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.helpdesk.service.employee.ReadEmployeeData.readEmployeeData;
 import static com.helpdesk.service.ticket.CreateTicket.createNewTicket;
@@ -34,7 +35,7 @@ public class NewTicketWin {
     @FXML
     private Button btn_NewTicketCancel;
 
-    private ArrayList<Employee> employeeList = new ArrayList<>();
+    private List<Employee> employeeList = new ArrayList<>();
 
     @FXML
     private void initialize() {
@@ -52,7 +53,7 @@ public class NewTicketWin {
         );
         cb_ticketStatus.getSelectionModel().selectFirst();
 
-        employeeList = (ArrayList<Employee>) readEmployeeData();
+        employeeList = readEmployeeData();
 
         // Test Data
         //employeeList.add(new Employee(13, "Ruslan", "Hassonov", "00/00 00 00", "rhassonov@gmail.com"));
@@ -80,7 +81,11 @@ public class NewTicketWin {
             int custId = Integer.parseInt(tf_ticketCustId.getText());
             String prior = cb_ticketPrior.getValue().toString();
             String status = cb_ticketStatus.getValue().toString();
-            int assignedTo = Integer.parseInt(tf_AssignedTo.getText());
+            String empId = cb_ticketTechnician.getValue().toString();
+            if (empId.contains(" ")){
+                empId = empId.substring(0, empId.indexOf(" "));
+            }
+            int assignedTo = Integer.parseInt(empId);
 
             createNewTicket(custId, status, prior, assignedTo);
 
@@ -100,8 +105,8 @@ public class NewTicketWin {
 
     @FXML
     private void validateInputField() {
-        if ((tf_ticketCustId.getText() == null) ||
-                (tf_AssignedTo.getText() == null)) {
+        if ((tf_ticketCustId.getText() == "") ||
+                (cb_ticketTechnician.getValue() == null)) {
             throw new IllegalArgumentException("All fields must be filled in correctly.");
         }
 
@@ -113,8 +118,8 @@ public class NewTicketWin {
     @FXML
     private void clearInputFields() {
         tf_ticketCustId.clear();
-        tf_AssignedTo.clear();
-        cb_ticketPrior.setValue(null);
+        cb_ticketTechnician.getSelectionModel().select(-1);
+        cb_ticketPrior.getSelectionModel().select(-1);
         cb_ticketStatus.getSelectionModel().selectFirst();
     }
 }

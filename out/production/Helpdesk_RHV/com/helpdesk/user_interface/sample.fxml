@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.helpdesk.user_interface.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.helpdesk.user_interface.Controller">
     <children>
         <VBox prefHeight="650.0" prefWidth="250.0" style="-fx-background-color: #5579b2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -315,13 +315,13 @@
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <TextField fx:id="tf_CustFName" editable="false" visible="false" GridPane.columnIndex="1" />
-                                        <TextField fx:id="tf_CustLName" editable="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                        <TextField fx:id="tf_CustStreet" editable="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                        <TextField fx:id="tf_CustCity" editable="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                        <TextField fx:id="tf_CustPostCode" editable="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                        <TextField fx:id="tf_CustPhone" editable="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                        <TextField fx:id="tf_CustEmail" editable="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                        <TextField fx:id="tf_CustFName" visible="false" GridPane.columnIndex="1" />
+                                        <TextField fx:id="tf_CustLName" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField fx:id="tf_CustStreet" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <TextField fx:id="tf_CustCity" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <TextField fx:id="tf_CustPostCode" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                        <TextField fx:id="tf_CustPhone" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                        <TextField fx:id="tf_CustEmail" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                     </children>
                                 </GridPane>
                                 <HBox layoutX="111.0" layoutY="240.0" spacing="4.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
@@ -336,14 +336,19 @@
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Button>
-                                        <Button fx:id="btn_CustDelete" mnemonicParsing="false" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Delete">
+                                        <Button fx:id="btn_CustDelete" mnemonicParsing="false" onAction="#deleteCustomerButtonPressed" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Delete">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Button>
                                     </children>
                                 </HBox>
-                                <Button fx:id="btn_CustEditOK" layoutX="254.0" layoutY="265.0" mnemonicParsing="false" onAction="#editCustomerOKButtonPressed" prefHeight="31.0" prefWidth="60.0" styleClass="crudBtn" stylesheets="@css/style.css" text="OK" visible="false" AnchorPane.leftAnchor="248.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="265.0" />
+                        <HBox layoutX="195.0" layoutY="265.0" spacing="5.0" AnchorPane.leftAnchor="195.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="265.0">
+                           <children>
+                                      <Button fx:id="btn_CustEditOK" mnemonicParsing="false" onAction="#editCustomerOKButtonPressed" prefHeight="31.0" prefWidth="60.0" styleClass="crudBtn" stylesheets="@css/style.css" text="OK" visible="false" />
+                              <Button fx:id="btn_CustEditCancel" mnemonicParsing="false" onAction="#editCustomerCancelButtonPressed" prefHeight="31.0" prefWidth="60.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Cancel" visible="false" />
+                           </children>
+                        </HBox>
                             </children>
                             <padding>
                                 <Insets left="7.0" />
@@ -439,15 +444,12 @@
                                         <Font name="Segoe UI" size="27.0" />
                                     </font>
                                 </Label>
-                                <GridPane alignment="CENTER_LEFT" layoutX="5.0" layoutY="32.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="55.0">
+                                <GridPane alignment="CENTER_LEFT" layoutX="19.0" layoutY="32.0" prefHeight="210.0" prefWidth="298.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="55.0">
                                     <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                     </columnConstraints>
                                     <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -474,16 +476,6 @@
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
-                                        <Label styleClass="label-detail" stylesheets="@css/style.css" text="Date" GridPane.rowIndex="4">
-                                            <font>
-                                                <Font name="Segoe UI" size="15.0" />
-                                            </font>
-                                        </Label>
-                                        <Label styleClass="label-detail" stylesheets="@css/style.css" text="Description" GridPane.rowIndex="5">
-                                            <font>
-                                                <Font name="Segoe UI" size="15.0" />
-                                            </font>
-                                        </Label>
                                         <Label fx:id="lbl_TicketNr" text="Label" GridPane.columnIndex="1">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
@@ -500,16 +492,6 @@
                                             </font>
                                         </Label>
                                         <Label fx:id="lbl_TicketAssigned" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                                            <font>
-                                                <Font name="Segoe UI" size="15.0" />
-                                            </font>
-                                        </Label>
-                                        <Label fx:id="lbl_TicketDate" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                            <font>
-                                                <Font name="Segoe UI" size="15.0" />
-                                            </font>
-                                        </Label>
-                                        <Label fx:id="lbl_TicketDescription" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>

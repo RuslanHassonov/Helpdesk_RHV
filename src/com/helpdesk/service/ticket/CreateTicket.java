@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import static com.helpdesk.service.customer.FindCustomer.findExistingCustomer;
+import static com.helpdesk.service.customer.UpdateCustomer.updateCustomerTicketList;
 import static com.helpdesk.service.employee.FindEmployee.findExistingEmployee;
+import static com.helpdesk.service.employee.UpdateEmployee.updateEmployeeTicketList;
 
 public class CreateTicket {
     public static void createNewTicket(int custId, String status, String priority, int empId) throws IOException {
@@ -40,19 +42,19 @@ public class CreateTicket {
             Ticket ticket = new Ticket();
             ticket.settStatus(status);
             ticket.settPriority(priority);
-            entityManager.persist(ticket);
+            ticket.setCreationDate(df.format(new Date()));
+            ticket.settAddress(customer.getcAddress());
 
-            TicketLine ticketLine = new TicketLine();
-            ticketLine.setTlDescription("Test Description of the issue");
-            ticketLine.setTlDate(df.format(new Date()));
-            ticketLine.setTlTimestampFrom("00h00");
-            ticketLine.setTlTimestampTo("00h00");
-            entityManager.persist(ticketLine);
-
+            custTicketList.add(ticket);
             customer.setcTicketList(custTicketList);
+            empTicketList.add(ticket);
             employee.seteTicketList(empTicketList);
 
+            entityManager.persist(ticket);
             entityManager.getTransaction().commit();
+            updateCustomerTicketList(customer.getcId(), custTicketList);
+            updateEmployeeTicketList(employee.geteId(), empTicketList);
+
             entityManager.close();
             emFactory.close();
         }

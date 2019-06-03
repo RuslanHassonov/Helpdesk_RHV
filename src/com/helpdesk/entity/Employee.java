@@ -1,6 +1,7 @@
 package com.helpdesk.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,8 +17,8 @@ public class Employee {
     private String ePhoneNumber;
     private String eEmail;
 
-    @OneToMany(targetEntity = Ticket.class)
-    private List eTicketList;
+    @OneToMany(targetEntity = Ticket.class, cascade = CascadeType.ALL)
+    private List<Ticket> eTicketList;
 
     public Employee(int eId, String eFirstName, String eLastName, String ePhoneNumber, String eEmail) {
         this.eId = eId;
@@ -25,6 +26,7 @@ public class Employee {
         this.eLastName = eLastName;
         this.ePhoneNumber = ePhoneNumber;
         this.eEmail = eEmail;
+        this.eTicketList = new ArrayList<Ticket>();
     }
 
     public Employee() {
@@ -75,7 +77,7 @@ public class Employee {
     }
 
     public void seteTicketList(List eTicketList) {
-        this.eTicketList = eTicketList;
+        this.eTicketList.addAll(eTicketList);
     }
 
 }

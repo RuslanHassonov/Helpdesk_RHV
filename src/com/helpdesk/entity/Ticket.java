@@ -1,6 +1,7 @@
 package com.helpdesk.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -11,9 +12,10 @@ public class Ticket {
     private int tId;
     private String tStatus;
     private String tPriority;
+    private String creationDate;
 
-    @OneToMany(targetEntity = TicketLine.class)
-    private List tDetail;
+    @OneToMany(targetEntity = TicketLine.class, cascade = {CascadeType.REFRESH,CascadeType.REMOVE})
+    private List<TicketLine> tDetail;
 
     @OneToOne
     private Address tAddress;
@@ -23,6 +25,7 @@ public class Ticket {
         this.tId = tId;
         this.tStatus = tStatus;
         this.tPriority = tPriority;
+        this.tDetail = new ArrayList<TicketLine>();
     }
 
     public Ticket() {
@@ -58,7 +61,7 @@ public class Ticket {
     }
 
     public void settDetail(List tDetail) {
-        this.tDetail = tDetail;
+        this.tDetail.addAll(tDetail);
     }
 
     public Address gettAddress() {
@@ -67,5 +70,13 @@ public class Ticket {
 
     public void settAddress(Address tAddress) {
         this.tAddress = tAddress;
+    }
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
     }
 }
