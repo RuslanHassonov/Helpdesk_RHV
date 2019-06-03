@@ -22,7 +22,6 @@ import javax.swing.*;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import static com.helpdesk.service.customer.DeleteCustomer.deleteExistingCustomer;
 import static com.helpdesk.service.customer.FindCustomer.findExistingCustomer;
@@ -138,15 +137,11 @@ public class Controller {
     @FXML
     private Label lbl_EmployeeRole;
     @FXML
-    private Label lbl_TicketDescription;
-    @FXML
     private Label lbl_TicketNr;
     @FXML
     private Label lbl_TicketStatus;
     @FXML
     private Label lbl_TicketPriority;
-    @FXML
-    private Label lbl_TicketAssigned;
     //</editor-fold>
 
     //<editor-fold desc="anchor-pane definition">
@@ -392,14 +387,12 @@ public class Controller {
             lbl_TicketNr.setText(String.valueOf(ticket.gettId()));
             lbl_TicketPriority.setText(ticket.gettPriority());
             lbl_TicketStatus.setText(ticket.gettStatus());
-            lbl_TicketAssigned.setText("Employee");
 
         } else {
 
             lbl_TicketNr.setText("");
             lbl_TicketPriority.setText("");
             lbl_TicketStatus.setText("");
-            lbl_TicketAssigned.setText("");
         }
     }
 

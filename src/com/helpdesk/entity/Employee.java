@@ -17,7 +17,7 @@ public class Employee {
     private String ePhoneNumber;
     private String eEmail;
 
-    @OneToMany(targetEntity = Ticket.class, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Ticket.class, cascade = {CascadeType.REFRESH, CascadeType.REMOVE})
     private List<Ticket> eTicketList;
 
     public Employee(int eId, String eFirstName, String eLastName, String ePhoneNumber, String eEmail) {
