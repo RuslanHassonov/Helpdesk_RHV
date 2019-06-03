@@ -11,10 +11,7 @@ public class FindCustomer {
         EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
         EntityManager entityManager = emFactory.createEntityManager();
 
-        Customer customer = entityManager.find(Customer.class, custNumber); //to be adjusted)
-
-        return customer;
-        //provide output, perhaps a toString override
+        return entityManager.find(Customer.class, custNumber);
 
     }
 }

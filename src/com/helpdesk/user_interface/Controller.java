@@ -3,7 +3,6 @@ package com.helpdesk.user_interface;
 import com.helpdesk.entity.Customer;
 import com.helpdesk.entity.Employee;
 import com.helpdesk.entity.Ticket;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -19,11 +18,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import javax.swing.*;
 import java.io.IOException;
 
+import static com.helpdesk.service.customer.DeleteCustomer.deleteExistingCustomer;
 import static com.helpdesk.service.customer.FindCustomer.findExistingCustomer;
 import static com.helpdesk.service.customer.ReadCustomerData.readCustomerData;
+import static com.helpdesk.service.customer.UpdateCustomer.updateExistingCustomer;
+import static com.helpdesk.service.employee.DeleteEmployee.deleteExistingEmployee;
 import static com.helpdesk.service.employee.ReadEmployeeData.readEmployeeData;
+import static com.helpdesk.service.ticket.ReadTicketData.readTicketData;
 
 public class Controller {
 
@@ -70,13 +74,37 @@ public class Controller {
     @FXML
     private Button btn_NewCustomer;
     @FXML
+    private Button btn_CustEdit;
+    @FXML
+    private Button btn_CustEditOK;
+    @FXML
+    private Button btn_CustDelete;
+    @FXML
     private Button btn_NewEmployee;
+    @FXML
+    private Button btn_EmpDelete;
+    @FXML
+    private Button btn_EmpEdit;
     @FXML
     private Button btn_NewTicket;
     //</editor-fold>
 
     @FXML
     private TextField tf_CustNumber;
+    @FXML
+    private TextField tf_CustFName;
+    @FXML
+    private TextField tf_CustLName;
+    @FXML
+    private TextField tf_CustStreet;
+    @FXML
+    private TextField tf_CustCity;
+    @FXML
+    private TextField tf_CustPostCode;
+    @FXML
+    private TextField tf_CustPhone;
+    @FXML
+    private TextField tf_CustEmail;
 
     //<editor-fold desc="label definition">
     @FXML
@@ -130,6 +158,8 @@ public class Controller {
 
     private double xOffset = 0;
     private double yOffset = 0;
+    private Customer customer;
+    private Employee employee;
 
 
     private ObservableList<Customer> customerData = FXCollections.observableArrayList();
@@ -207,6 +237,61 @@ public class Controller {
     }
 
     @FXML
+    private void editCustomerButtonPressed() {
+        lbl_FirstName.setVisible(false);
+        lbl_LastName.setVisible(false);
+        lbl_Street.setVisible(false);
+        lbl_City.setVisible(false);
+        lbl_PostalCode.setVisible(false);
+        lbl_Phone.setVisible(false);
+        lbl_Email.setVisible(false);
+
+        tf_CustFName.setVisible(true);
+        tf_CustLName.setVisible(true);
+        tf_CustStreet.setVisible(true);
+        tf_CustCity.setVisible(true);
+        tf_CustPostCode.setVisible(true);
+        tf_CustPhone.setVisible(true);
+        tf_CustEmail.setVisible(true);
+
+        btn_CustEditOK.setVisible(true);
+    }
+
+    @FXML
+    private void editCustomerOKButtonPressed() {
+        try {
+            int id = customer.getcId();
+            String fName = tf_CustFName.getText();
+            String lName = tf_CustLName.getText();
+            String street = tf_CustStreet.getText();
+            String city = tf_CustCity.getText();
+            int postCode = Integer.parseInt(tf_CustPostCode.getText());
+            String phone = tf_CustPhone.getText();
+            String email = tf_CustEmail.getText();
+
+            updateExistingCustomer(id, fName, lName, phone, email);
+            JOptionPane.showMessageDialog(new JFrame(), "Customer succesfully updated");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Numerical value error during update", "Warning", JOptionPane.WARNING_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error during update", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
+    @FXML
+    private void deleteCustomerButtonPressed() {
+        try {
+            int id = customer.getcId();
+            deleteExistingCustomer(id);
+            JOptionPane.showMessageDialog(new JFrame(), "Customer succesfully deleted");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error during deletion", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+
+    }
+
+
+    @FXML
     private void newEmployeeButtonPressed() {
         try {
             newButtonPressedHandling("newEmployee");
@@ -214,6 +299,18 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void deleteEmployeeButtonPressed() {
+        try {
+            int id = employee.geteId();
+            deleteExistingEmployee(id);
+            JOptionPane.showMessageDialog(new JFrame(), "Employee succesfully deleted");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error during deletion", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+
     }
 
     @FXML
@@ -237,10 +334,11 @@ public class Controller {
     }
 
 
-
     //<editor-fold desc="details">
     private void showCustomerDetails(Customer customer) {
         if (customer != null) {
+            screenInitialize();
+            this.customer = customer;
             lbl_FirstName.setText(customer.getcFirstName());
             lbl_LastName.setText(customer.getcLastName());
             lbl_Street.setText(customer.getcAddress().getaStreet() + " " + customer.getcAddress().getaHouseNumber());
@@ -248,8 +346,17 @@ public class Controller {
             lbl_PostalCode.setText(String.valueOf(customer.getcAddress().getaPostalCode()));
             lbl_Phone.setText(customer.getcPhoneNumber());
             lbl_Email.setText(customer.getcEmail());
-        } else {
 
+            tf_CustFName.setText(customer.getcFirstName());
+            tf_CustLName.setText(customer.getcLastName());
+            tf_CustStreet.setText(customer.getcAddress().getaStreet());
+            tf_CustCity.setText(customer.getcAddress().getaCity());
+            tf_CustPostCode.setText(String.valueOf(customer.getcAddress().getaPostalCode()));
+            tf_CustPhone.setText(customer.getcPhoneNumber());
+            tf_CustEmail.setText(customer.getcEmail());
+
+        } else {
+            screenInitialize();
             lbl_FirstName.setText("");
             lbl_LastName.setText("");
             lbl_Street.setText("");
@@ -257,18 +364,17 @@ public class Controller {
             lbl_PostalCode.setText("");
             lbl_Phone.setText("");
             lbl_Email.setText("");
-
         }
     }
 
     private void showTicketDetails(Ticket ticket) {
-        if (ticket != null){
-            lbl_TicketNr.setText("");
-            lbl_TicketPriority.setText("");
-            lbl_TicketStatus.setText("");
-            lbl_TicketAssigned.setText("");
-            lbl_TicketDate.setText("");
-            lbl_TicketDescription.setText("");
+        if (ticket != null) {
+            lbl_TicketNr.setText(String.valueOf(ticket.gettId()));
+            lbl_TicketPriority.setText(ticket.gettPriority());
+            lbl_TicketStatus.setText(ticket.gettStatus());
+            lbl_TicketAssigned.setText("test");
+            lbl_TicketDate.setText("test");
+            lbl_TicketDescription.setText("test");
 
         } else {
 
@@ -320,6 +426,16 @@ public class Controller {
         ap_Customers.setVisible(false);
         ap_TicketList.setVisible(false);
         ap_Staff.setVisible(false);
+
+        tf_CustFName.setVisible(false);
+        tf_CustLName.setVisible(false);
+        tf_CustStreet.setVisible(false);
+        tf_CustCity.setVisible(false);
+        tf_CustPostCode.setVisible(false);
+        tf_CustPhone.setVisible(false);
+        tf_CustEmail.setVisible(false);
+
+        btn_CustEditOK.setVisible(false);
     }
 
     private void undecoratedDraggableStage(Parent root, Stage s) {
@@ -354,6 +470,11 @@ public class Controller {
             tblC_EmplFullName.setCellValueFactory(e -> new SimpleStringProperty(e.getValue().geteFirstName() + " " + e.getValue().geteLastName()));
             tblV_Employee.setItems(employeeData);
 
+            ticketData.addAll(readTicketData());
+            tblC_TicketNr.setCellValueFactory(t -> new SimpleStringProperty(String.valueOf(t.getValue().gettId())));
+            tblC_TicketStatus.setCellValueFactory(t -> new SimpleStringProperty(t.getValue().gettStatus()));
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -370,7 +491,6 @@ public class Controller {
         s.setScene(new Scene(root));
         s.show();
     }
-
 
 
 }

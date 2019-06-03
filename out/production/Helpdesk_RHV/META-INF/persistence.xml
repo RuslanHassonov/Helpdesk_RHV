@@ -11,6 +11,8 @@
         <class>com.helpdesk.entity.Manager</class>
         <class>com.helpdesk.entity.Technician</class>
         <class>com.helpdesk.entity.Dispatcher</class>
+        <class>com.helpdesk.entity.Ticket</class>
+        <class>com.helpdesk.entity.TicketLine</class>
 
         <properties>
             <property name="javax.persistence.jdbc.url"

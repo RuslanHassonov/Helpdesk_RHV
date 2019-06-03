@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.helpdesk.user_interface.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.helpdesk.user_interface.Controller">
     <children>
         <VBox prefHeight="650.0" prefWidth="250.0" style="-fx-background-color: #5579b2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -157,50 +157,50 @@
                 </Button>
             </children>
         </HBox>
-      <AnchorPane fx:id="ap_Home" layoutX="250.0" layoutY="92.0" prefHeight="470.0" prefWidth="650.0" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="65.0">
-         <children>
-            <Pane prefHeight="69.0" prefWidth="263.0" style="-fx-background-color: #5579b2; -fx-background-radius: 0 15 15 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Label layoutX="33.0" layoutY="16.0" text="Home" textFill="#ededed">
-                     <font>
-                        <Font name="Segoe UI" size="25.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="39.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/outline_home_white_24dpx2.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Label>
-               </children>
-               <effect>
-                  <DropShadow blurType="GAUSSIAN" color="#00000045" />
-               </effect>
-            </Pane>
-         </children>
-      </AnchorPane>
-        <AnchorPane fx:id="ap_Customers" layoutX="250.0" layoutY="46.0" prefHeight="470.0" prefWidth="650.0" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
+        <AnchorPane fx:id="ap_Home" layoutX="250.0" layoutY="92.0" prefHeight="470.0" prefWidth="650.0" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="65.0">
             <children>
-            <Pane layoutY="14.0" prefHeight="69.0" prefWidth="263.0" style="-fx-background-color: #5579b2; -fx-background-radius: 0 15 15 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Label layoutX="33.0" layoutY="16.0" text="Customers" textFill="#ededed">
-                     <font>
-                        <Font name="Segoe UI" size="25.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="39.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/baseline_group_white_24dpx2.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Label>
-               </children>
-               <effect>
-                  <DropShadow blurType="GAUSSIAN" color="#00000045" />
-               </effect>
-            </Pane>
+                <Pane prefHeight="69.0" prefWidth="263.0" style="-fx-background-color: #5579b2; -fx-background-radius: 0 15 15 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label layoutX="33.0" layoutY="16.0" text="Home" textFill="#ededed">
+                            <font>
+                                <Font name="Segoe UI" size="25.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="39.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@icons/outline_home_white_24dpx2.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </children>
+                    <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#00000045" />
+                    </effect>
+                </Pane>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="ap_Customers" layoutX="250.0" layoutY="46.0" prefHeight="470.0" prefWidth="650.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
+            <children>
+                <Pane layoutY="14.0" prefHeight="69.0" prefWidth="263.0" style="-fx-background-color: #5579b2; -fx-background-radius: 0 15 15 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label layoutX="33.0" layoutY="16.0" text="Customers" textFill="#ededed">
+                            <font>
+                                <Font name="Segoe UI" size="25.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="39.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@icons/baseline_group_white_24dpx2.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </children>
+                    <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#00000045" />
+                    </effect>
+                </Pane>
                 <SplitPane dividerPositions="0.5" layoutX="7.0" layoutY="111.0" prefHeight="287.0" prefWidth="637.0" stylesheets="@css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="111.0">
                     <items>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -315,6 +315,13 @@
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Label>
+                                        <TextField fx:id="tf_CustFName" editable="false" visible="false" GridPane.columnIndex="1" />
+                                        <TextField fx:id="tf_CustLName" editable="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField fx:id="tf_CustStreet" editable="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <TextField fx:id="tf_CustCity" editable="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <TextField fx:id="tf_CustPostCode" editable="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                        <TextField fx:id="tf_CustPhone" editable="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                        <TextField fx:id="tf_CustEmail" editable="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                     </children>
                                 </GridPane>
                                 <HBox layoutX="111.0" layoutY="240.0" spacing="4.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
@@ -324,18 +331,19 @@
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Button>
-                                        <Button mnemonicParsing="false" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Edit...">
+                                        <Button fx:id="btn_CustEdit" mnemonicParsing="false" onAction="#editCustomerButtonPressed" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Edit...">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Button>
-                                        <Button mnemonicParsing="false" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Delete">
+                                        <Button fx:id="btn_CustDelete" mnemonicParsing="false" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Delete">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Button>
                                     </children>
                                 </HBox>
+                                <Button fx:id="btn_CustEditOK" layoutX="254.0" layoutY="265.0" mnemonicParsing="false" onAction="#editCustomerOKButtonPressed" prefHeight="31.0" prefWidth="60.0" styleClass="crudBtn" stylesheets="@css/style.css" text="OK" visible="false" AnchorPane.leftAnchor="248.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="265.0" />
                             </children>
                             <padding>
                                 <Insets left="7.0" />
@@ -348,15 +356,15 @@
                 </SplitPane>
                 <HBox layoutX="429.0" layoutY="75.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="75.0">
                     <children>
-                  <Button mnemonicParsing="false" styleClass="topBtn" stylesheets="@css/style.css">
-                     <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/outline_refresh_black_24dpx2.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                        <Button mnemonicParsing="false" styleClass="topBtn" stylesheets="@css/style.css">
+                            <graphic>
+                                <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@icons/outline_refresh_black_24dpx2.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
                         <TextField fx:id="tf_CustNumber" prefHeight="30.0" prefWidth="165.0" promptText="Customer Number..." styleClass="text-field-search" stylesheets="@css/style.css" />
                         <Button fx:id="btn_SearchCust" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#findCustomerButtonPressed" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                             <font>
@@ -382,25 +390,25 @@
         </AnchorPane>
         <AnchorPane fx:id="ap_TicketList" layoutX="260.0" layoutY="56.0" prefHeight="470.0" prefWidth="650.0" stylesheets="@css/style.css" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
             <children>
-            <Pane prefHeight="69.0" prefWidth="263.0" style="-fx-background-color: #5579b2; -fx-background-radius: 0 15 15 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Label layoutX="33.0" layoutY="16.0" text="Ticket List" textFill="#ededed">
-                     <font>
-                        <Font name="Segoe UI" size="25.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="39.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/sharp_view_list_white_24dpx2.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Label>
-               </children>
-               <effect>
-                  <DropShadow blurType="GAUSSIAN" color="#00000045" />
-               </effect>
-            </Pane>
+                <Pane prefHeight="69.0" prefWidth="263.0" style="-fx-background-color: #5579b2; -fx-background-radius: 0 15 15 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label layoutX="33.0" layoutY="16.0" text="Ticket List" textFill="#ededed">
+                            <font>
+                                <Font name="Segoe UI" size="25.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="39.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@icons/sharp_view_list_white_24dpx2.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </children>
+                    <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#00000045" />
+                    </effect>
+                </Pane>
                 <SplitPane dividerPositions="0.5" layoutX="7.0" layoutY="36.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="111.0">
                     <items>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -539,15 +547,15 @@
                 </SplitPane>
                 <HBox layoutX="429.0" layoutY="75.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="75.0">
                     <children>
-                  <Button mnemonicParsing="false" styleClass="topBtn" stylesheets="@css/style.css">
-                     <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/outline_refresh_black_24dpx2.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                        <Button mnemonicParsing="false" styleClass="topBtn" stylesheets="@css/style.css">
+                            <graphic>
+                                <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@icons/outline_refresh_black_24dpx2.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
                         <TextField fx:id="tf_CustNumber1" prefHeight="30.0" prefWidth="165.0" promptText="Ticket Number..." styleClass="text-field-search" stylesheets="@css/style.css" />
                         <Button fx:id="btn_SearchTicket" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                             <font>
@@ -571,27 +579,27 @@
                 </HBox>
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="ap_Staff" layoutX="270.0" layoutY="66.0" prefHeight="470.0" prefWidth="650.0" stylesheets="@css/style.css" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="65.0">
+        <AnchorPane fx:id="ap_Staff" layoutX="270.0" layoutY="66.0" prefHeight="470.0" prefWidth="650.0" stylesheets="@css/style.css" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="65.0">
             <children>
-            <Pane prefHeight="69.0" prefWidth="263.0" style="-fx-background-color: #5579b2; -fx-background-radius: 0 15 15 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Label layoutX="33.0" layoutY="16.0" text="Staff" textFill="#ededed">
-                     <font>
-                        <Font name="Segoe UI" size="25.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="39.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/sharp_account_box_white_24dpx2.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Label>
-               </children>
-               <effect>
-                  <DropShadow blurType="GAUSSIAN" color="#00000045" />
-               </effect>
-            </Pane>
+                <Pane prefHeight="69.0" prefWidth="263.0" style="-fx-background-color: #5579b2; -fx-background-radius: 0 15 15 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label layoutX="33.0" layoutY="16.0" text="Staff" textFill="#ededed">
+                            <font>
+                                <Font name="Segoe UI" size="25.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="39.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@icons/sharp_account_box_white_24dpx2.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </children>
+                    <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#00000045" />
+                    </effect>
+                </Pane>
                 <SplitPane dividerPositions="0.5" layoutX="7.0" layoutY="36.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="111.0">
                     <items>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -693,12 +701,12 @@
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Button>
-                                        <Button mnemonicParsing="false" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Edit...">
+                                        <Button fx:id="btn_EmpEdit" mnemonicParsing="false" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Edit...">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Button>
-                                        <Button mnemonicParsing="false" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Delete">
+                                        <Button fx:id="btn_EmpDelete" mnemonicParsing="false" onAction="#deleteEmployeeButtonPressed" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Delete">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
@@ -717,15 +725,15 @@
                 </SplitPane>
                 <HBox layoutX="429.0" layoutY="75.0" spacing="2.0" AnchorPane.bottomAnchor="364.0" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="75.0">
                     <children>
-                  <Button mnemonicParsing="false" styleClass="topBtn" stylesheets="@css/style.css">
-                     <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/outline_refresh_black_24dpx2.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                        <Button mnemonicParsing="false" styleClass="topBtn" stylesheets="@css/style.css">
+                            <graphic>
+                                <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@icons/outline_refresh_black_24dpx2.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
                         <TextField fx:id="tf_CustNumber11" prefHeight="30.0" prefWidth="165.0" promptText="Employee Number..." styleClass="text-field-search" stylesheets="@css/style.css" />
                         <Button fx:id="btn_SearchStaff" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                             <font>

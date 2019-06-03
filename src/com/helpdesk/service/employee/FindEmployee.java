@@ -7,12 +7,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class FindEmployee {
-    public static void findExistingEmployee() {
+    public static Employee findExistingEmployee(int empId) {
         EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
         EntityManager entityManager = emFactory.createEntityManager();
 
-        Employee employee = entityManager.find(Employee.class, 5000); //to be adjusted
-
-        //output to be provided
+        return entityManager.find(Employee.class, empId);
     }
 }
