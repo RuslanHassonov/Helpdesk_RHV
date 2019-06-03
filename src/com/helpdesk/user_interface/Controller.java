@@ -369,10 +369,11 @@ public class Controller {
 
     private void showTicketDetails(Ticket ticket) {
         if (ticket != null) {
+            screenInitialize();
             lbl_TicketNr.setText(String.valueOf(ticket.gettId()));
             lbl_TicketPriority.setText(ticket.gettPriority());
             lbl_TicketStatus.setText(ticket.gettStatus());
-            lbl_TicketAssigned.setText("test");
+            lbl_TicketAssigned.setText("text");
             lbl_TicketDate.setText("test");
             lbl_TicketDescription.setText("test");
 
@@ -389,6 +390,7 @@ public class Controller {
 
     private void showEmployeeDetails(Employee employee) {
         if (employee != null) {
+            screenInitialize();
             lbl_EmployeeFirstName.setText(employee.geteFirstName());
             lbl_EmployeeLastName.setText(employee.geteLastName());
             lbl_EmployeePhone.setText(employee.getePhoneNumber());
@@ -438,26 +440,6 @@ public class Controller {
         btn_CustEditOK.setVisible(false);
     }
 
-    private void undecoratedDraggableStage(Parent root, Stage s) {
-
-        //Make undecorated window draggable/movable
-        root.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                xOffset = event.getSceneX();
-                yOffset = event.getSceneY();
-            }
-        });
-
-        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                s.setX(event.getScreenX() - xOffset);
-                s.setY(event.getScreenY() - yOffset);
-            }
-        });
-    }
-
     private void populateTableView() {
         try {
             customerData.addAll(readCustomerData());
@@ -478,6 +460,27 @@ public class Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+
+    private void undecoratedDraggableStage(Parent root, Stage s) {
+
+        //Make undecorated window draggable/movable
+        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+
+        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                s.setX(event.getScreenX() - xOffset);
+                s.setY(event.getScreenY() - yOffset);
+            }
+        });
     }
 
     private void newButtonPressedHandling(String window) throws IOException {
