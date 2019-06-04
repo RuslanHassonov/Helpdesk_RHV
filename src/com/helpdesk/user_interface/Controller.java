@@ -189,21 +189,15 @@ public class Controller {
         showTicketDetails(null);
 
         tblV_Customer.getSelectionModel().selectedItemProperty().addListener(
-                (observableValue, oldValue, newValue) -> {
-                    showCustomerDetails(newValue);
-                }
+                (observableValue, oldValue, newValue) -> showCustomerDetails(newValue)
         );
 
         tblV_Employee.getSelectionModel().selectedItemProperty().addListener(
-                ((observableValue, oldValue, newValue) -> {
-                    showEmployeeDetails(newValue);
-                })
+                ((observableValue, oldValue, newValue) -> showEmployeeDetails(newValue))
         );
 
         tblV_TicketListTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> {
-                    showTicketDetails(newValue);
-                }
+                (observable, oldValue, newValue) -> showTicketDetails(newValue)
         );
 
     }
@@ -369,7 +363,7 @@ public class Controller {
 
             s.setScene(new Scene(root));
 
-            EmpTicketListDialog controller = loader.<EmpTicketListDialog>getController();
+            EmpTicketListDialog controller = loader.getController();
             controller.initData(employee);
             controller.initData(new Employee());
 
