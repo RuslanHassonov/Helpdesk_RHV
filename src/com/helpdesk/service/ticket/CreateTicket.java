@@ -3,7 +3,6 @@ package com.helpdesk.service.ticket;
 import com.helpdesk.entity.Customer;
 import com.helpdesk.entity.Employee;
 import com.helpdesk.entity.Ticket;
-import com.helpdesk.entity.TicketLine;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
