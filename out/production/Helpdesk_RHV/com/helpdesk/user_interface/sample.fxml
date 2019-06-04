@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.helpdesk.user_interface.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.helpdesk.user_interface.Controller">
     <children>
         <VBox prefHeight="650.0" prefWidth="250.0" style="-fx-background-color: #5579b2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -393,7 +393,7 @@
                 </HBox>
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="ap_TicketList" layoutX="260.0" layoutY="56.0" prefHeight="470.0" prefWidth="650.0" stylesheets="@css/style.css" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
+        <AnchorPane fx:id="ap_TicketList" layoutX="260.0" layoutY="56.0" prefHeight="470.0" prefWidth="650.0" stylesheets="@css/style.css" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
             <children>
                 <Pane prefHeight="69.0" prefWidth="263.0" style="-fx-background-color: #5579b2; -fx-background-radius: 0 15 15 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
@@ -444,7 +444,7 @@
                                         <Font name="Segoe UI" size="27.0" />
                                     </font>
                                 </Label>
-                                <GridPane alignment="CENTER_LEFT" layoutX="19.0" layoutY="32.0" prefHeight="210.0" prefWidth="298.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="55.0">
+                                <GridPane alignment="CENTER_LEFT" layoutX="33.0" layoutY="32.0" prefHeight="135.0" prefWidth="284.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="55.0">
                                     <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -494,12 +494,7 @@
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Button>
-                                        <Button mnemonicParsing="false" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Edit...">
-                                            <font>
-                                                <Font name="Segoe UI" size="15.0" />
-                                            </font>
-                                        </Button>
-                                        <Button mnemonicParsing="false" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Delete">
+                                        <Button fx:id="btn_TicketDelete" mnemonicParsing="false" onAction="#deleteTicketButtonPressed" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Delete">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
@@ -527,8 +522,8 @@
                                 </ImageView>
                             </graphic>
                         </Button>
-                        <TextField fx:id="tf_CustNumber1" prefHeight="30.0" prefWidth="165.0" promptText="Ticket Number..." styleClass="text-field-search" stylesheets="@css/style.css" />
-                        <Button fx:id="btn_SearchTicket" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
+                        <TextField fx:id="tf_TicketIDSearch" prefHeight="30.0" prefWidth="165.0" promptText="Ticket Number..." styleClass="text-field-search" stylesheets="@css/style.css" />
+                        <Button fx:id="btn_SearchTicket" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#findTicketButtonPressed" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                             <font>
                                 <Font name="Segoe UI" size="13.0" />
                             </font>
@@ -550,7 +545,7 @@
                 </HBox>
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="ap_Staff" layoutX="270.0" layoutY="66.0" prefHeight="470.0" prefWidth="650.0" stylesheets="@css/style.css" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="65.0">
+        <AnchorPane fx:id="ap_Staff" layoutX="270.0" layoutY="66.0" prefHeight="470.0" prefWidth="650.0" stylesheets="@css/style.css" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="65.0">
             <children>
                 <Pane prefHeight="69.0" prefWidth="263.0" style="-fx-background-color: #5579b2; -fx-background-radius: 0 15 15 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
@@ -672,15 +667,18 @@
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Button>
-                                        <Button fx:id="btn_EmpEdit" mnemonicParsing="false" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Edit...">
-                                            <font>
-                                                <Font name="Segoe UI" size="15.0" />
-                                            </font>
-                                        </Button>
                                         <Button fx:id="btn_EmpDelete" mnemonicParsing="false" onAction="#deleteEmployeeButtonPressed" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Delete">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
+                                        </Button>
+                                        <Button fx:id="btn_EmpMore" mnemonicParsing="false" onAction="#moreEmployeeButtonPressed" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="More...">
+                                            <font>
+                                                <Font name="Segoe UI" size="15.0" />
+                                            </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
                                         </Button>
                                     </children>
                                 </HBox>
@@ -705,7 +703,7 @@
                                 </ImageView>
                             </graphic>
                         </Button>
-                        <TextField fx:id="tf_CustNumber11" prefHeight="30.0" prefWidth="165.0" promptText="Employee Number..." styleClass="text-field-search" stylesheets="@css/style.css" />
+                        <TextField fx:id="tf_EmployeeSearch" onAction="#findEmployeeButtonPressed" prefHeight="30.0" prefWidth="165.0" promptText="Employee Number..." styleClass="text-field-search" stylesheets="@css/style.css" />
                         <Button fx:id="btn_SearchStaff" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefWidth="26.0" styleClass="topBtn" stylesheets="@css/style.css">
                             <font>
                                 <Font name="Segoe UI" size="13.0" />

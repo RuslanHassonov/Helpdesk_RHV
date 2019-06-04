@@ -672,7 +672,7 @@
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>
                                         </Button>
-                                        <Button fx:id="btn_EmpMore" mnemonicParsing="false" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="More...">
+                                        <Button fx:id="btn_EmpMore" mnemonicParsing="false" onAction="#moreEmployeeButtonPressed" prefWidth="80.0" styleClass="crudBtn" stylesheets="@css/style.css" text="More...">
                                             <font>
                                                 <Font name="Segoe UI" size="15.0" />
                                             </font>

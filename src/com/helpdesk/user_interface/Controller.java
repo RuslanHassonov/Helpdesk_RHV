@@ -3,6 +3,7 @@ package com.helpdesk.user_interface;
 import com.helpdesk.entity.Customer;
 import com.helpdesk.entity.Employee;
 import com.helpdesk.entity.Ticket;
+import com.helpdesk.user_interface.windows.EmpTicketListDialog;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -92,7 +93,7 @@ public class Controller {
     @FXML
     private Button btn_EmpDelete;
     @FXML
-    private Button btn_EmpEdit;
+    private Button btn_EmpMore;
     @FXML
     private Button btn_NewTicket;
     @FXML
@@ -353,6 +354,32 @@ public class Controller {
             showEmployeeDetails(employee);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(new JFrame(), "Error during lookup: " + e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
+    @FXML
+    private void moreEmployeeButtonPressed() {
+        try {
+          FXMLLoader loader = new FXMLLoader(getClass().getResource("windows/empTicketListDialog.fxml"));
+            Parent root = loader.load();
+            Stage s = new Stage();
+            s.initStyle(StageStyle.UNDECORATED);
+
+            undecoratedDraggableStage(root, s);
+
+            s.setScene(new Scene(root));
+
+            EmpTicketListDialog controller = loader.<EmpTicketListDialog>getController();
+            controller.initData(employee);
+            controller.initData(new Employee());
+
+            s.show();
+
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error during deletion: " + e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+            //https://stackoverflow.com/questions/14187963/passing-parameters-javafx-fxml
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error: " + e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }
 
