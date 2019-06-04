@@ -13,7 +13,7 @@ public class DeleteEmployee {
         EntityManager entityManager = emFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
-        Employee employee = entityManager.find(Employee.class, eId); //to be adjusted
+        Employee employee = entityManager.find(Employee.class, eId);
         entityManager.remove(employee);
         entityManager.getTransaction().commit();
 

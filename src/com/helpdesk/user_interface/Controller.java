@@ -28,7 +28,10 @@ import static com.helpdesk.service.customer.FindCustomer.findExistingCustomer;
 import static com.helpdesk.service.customer.ReadCustomerData.readCustomerData;
 import static com.helpdesk.service.customer.UpdateCustomer.updateExistingCustomer;
 import static com.helpdesk.service.employee.DeleteEmployee.deleteExistingEmployee;
+import static com.helpdesk.service.employee.FindEmployee.findExistingEmployee;
 import static com.helpdesk.service.employee.ReadEmployeeData.readEmployeeData;
+import static com.helpdesk.service.ticket.DeleteTicket.deleteExistingTicket;
+import static com.helpdesk.service.ticket.FindTicket.findExistingTicket;
 import static com.helpdesk.service.ticket.ReadTicketData.readTicketData;
 
 @SuppressWarnings("Duplicates")
@@ -92,8 +95,13 @@ public class Controller {
     private Button btn_EmpEdit;
     @FXML
     private Button btn_NewTicket;
+    @FXML
+    private Button btn_SearchTicket;
+    @FXML
+    private Button btn_TicketDelete;
     //</editor-fold>
 
+    //<editor-fold desc="textfield definition">
     @FXML
     private TextField tf_CustNumber;
     @FXML
@@ -110,6 +118,11 @@ public class Controller {
     private TextField tf_CustPhone;
     @FXML
     private TextField tf_CustEmail;
+    @FXML
+    private TextField tf_TicketIDSearch;
+    @FXML
+    private TextField tf_EmployeeSearch;
+    //</editor-fold>
 
     //<editor-fold desc="label definition">
     @FXML
@@ -159,6 +172,7 @@ public class Controller {
     private double yOffset = 0;
     private Customer customer;
     private Employee employee;
+    private Ticket ticket;
     private DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
     private ObservableList<Customer> customerData = FXCollections.observableArrayList();
@@ -193,6 +207,7 @@ public class Controller {
 
     }
 
+    /*---------- Menu Button Handling --------------------------------------------------------------------------------*/
     @FXML
     private void homeButtonPressed() {
         screenInitialize();
@@ -210,7 +225,6 @@ public class Controller {
     @FXML
     private void ticketsButtonPressed() {
         screenInitialize();
-        resetAllCustomerLabels();
         populateTableView();
         ap_TicketList.setDisable(false);
         ap_TicketList.setVisible(true);
@@ -219,17 +233,13 @@ public class Controller {
     @FXML
     private void staffButtonPressed() {
         screenInitialize();
+        resetAllEmployeeLabels();
         populateTableView();
         ap_Staff.setDisable(false);
         ap_Staff.setVisible(true);
     }
 
-    @FXML
-    private void findCustomerButtonPressed() {
-        Customer customer = findExistingCustomer(Integer.parseInt(tf_CustNumber.getText()));
-        showCustomerDetails(customer);
-    }
-
+    /*---------- Customer Handling -----------------------------------------------------------------------------------*/
     @FXML
     private void newCustomerButtonPressed() {
         try {
@@ -240,6 +250,13 @@ public class Controller {
         }
     }
 
+    @FXML
+    private void findCustomerButtonPressed() {
+        Customer customer = findExistingCustomer(Integer.parseInt(tf_CustNumber.getText()));
+        showCustomerDetails(customer);
+    }
+
+    //<editor-fold desc="customer edit">
     @FXML
     private void editCustomerButtonPressed() {
         lbl_FirstName.setVisible(false);
@@ -268,15 +285,15 @@ public class Controller {
             int id = customer.getcId();
             String fName = tf_CustFName.getText();
             String lName = tf_CustLName.getText();
-            String street = tf_CustStreet.getText();
-            String city = tf_CustCity.getText();
-            int postCode = Integer.parseInt(tf_CustPostCode.getText());
+            //String street = tf_CustStreet.getText();
+            //String city = tf_CustCity.getText();
+            //int postCode = Integer.parseInt(tf_CustPostCode.getText());
             String phone = tf_CustPhone.getText();
             String email = tf_CustEmail.getText();
 
             updateExistingCustomer(id, fName, lName, phone, email);
             populateTableView();
-            JOptionPane.showMessageDialog(new JFrame(), "Customer succesfully updated");
+            JOptionPane.showMessageDialog(new JFrame(), "Customer successfully updated");
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(new JFrame(), "Numerical value error during update", "Warning", JOptionPane.WARNING_MESSAGE);
         } catch (Exception e) {
@@ -285,28 +302,29 @@ public class Controller {
     }
 
     @FXML
-    private void editCustomerCancelButtonPressed(){
+    private void editCustomerCancelButtonPressed() {
         try {
             customersButtonPressed();
             resetAllCustomerLabels();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+    //</editor-fold>
 
     @FXML
     private void deleteCustomerButtonPressed() {
         try {
             int id = customer.getcId();
             deleteExistingCustomer(id);
-            JOptionPane.showMessageDialog(new JFrame(), "Customer succesfully deleted");
+            JOptionPane.showMessageDialog(new JFrame(), "Customer successfully deleted.");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(new JFrame(), "Error during deletion", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(new JFrame(), "Error during deletion:" + e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
         }
 
     }
 
-
+    /*---------- Employee Handling -----------------------------------------------------------------------------------*/
     @FXML
     private void newEmployeeButtonPressed() {
         try {
@@ -322,13 +340,23 @@ public class Controller {
         try {
             int id = employee.geteId();
             deleteExistingEmployee(id);
-            JOptionPane.showMessageDialog(new JFrame(), "Employee succesfully deleted");
+            JOptionPane.showMessageDialog(new JFrame(), "Employee successfully deleted.");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(new JFrame(), "Error during deletion", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(new JFrame(), "Error during deletion: " + e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
         }
-
     }
 
+    @FXML
+    private void findEmployeeButtonPressed() {
+        try{
+            Employee employee = findExistingEmployee(Integer.parseInt(tf_EmployeeSearch.getText()));
+            showEmployeeDetails(employee);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error during lookup: " + e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
+    /*--------- Ticket Handling --------------------------------------------------------------------------------------*/
     @FXML
     private void newTicketButtonPressed() {
         try {
@@ -338,6 +366,28 @@ public class Controller {
         }
     }
 
+    @FXML
+    private void findTicketButtonPressed() {
+        try {
+            Ticket ticket = findExistingTicket(Integer.parseInt(tf_TicketIDSearch.getText()));
+            showTicketDetails(ticket);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error during lookup: " + e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
+    @FXML
+    private void deleteTicketButtonPressed() {
+        try {
+            int tId = ticket.gettId();
+            deleteExistingTicket(tId);
+            JOptionPane.showMessageDialog(new JFrame(), "Ticket successfully deleted.");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error during deletion: " + e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
+    /*--------- Minimize/Close Button Handling -----------------------------------------------------------------------*/
     @FXML
     private void minimizeButtonPressed() {
         Stage stage = (Stage) btn_Minimize.getScene().getWindow();
@@ -349,7 +399,48 @@ public class Controller {
         Platform.exit();
     }
 
+    /*---------- Screen Initialization -------------------------------------------------------------------------------*/
+    private void screenInitialize() {
+        ap_Home.setVisible(true);
+        ap_Customers.setDisable(true);
+        ap_TicketList.setDisable(true);
+        ap_Staff.setDisable(true);
+        ap_Customers.setVisible(false);
+        ap_TicketList.setVisible(false);
+        ap_Staff.setVisible(false);
 
+        tf_CustFName.setVisible(false);
+        tf_CustLName.setVisible(false);
+        tf_CustStreet.setVisible(false);
+        tf_CustCity.setVisible(false);
+        tf_CustPostCode.setVisible(false);
+        tf_CustPhone.setVisible(false);
+        tf_CustEmail.setVisible(false);
+
+        btn_CustEditOK.setVisible(false);
+        btn_CustEditCancel.setVisible(false);
+
+    }
+
+    private void resetAllCustomerLabels() {
+        lbl_FirstName.setVisible(true);
+        lbl_LastName.setVisible(true);
+        lbl_Street.setVisible(true);
+        lbl_City.setVisible(true);
+        lbl_PostalCode.setVisible(true);
+        lbl_Phone.setVisible(true);
+        lbl_Email.setVisible(true);
+    }
+
+    private void resetAllEmployeeLabels() {
+        lbl_EmployeeFirstName.setVisible(true);
+        lbl_EmployeeLastName.setVisible(true);
+        lbl_EmployeePhone.setVisible(true);
+        lbl_EmployeeEmail.setVisible(true);
+        lbl_EmployeeRole.setVisible(true);
+    }
+
+    /*---------- Details Display Handling ----------------------------------------------------------------------------*/
     //<editor-fold desc="details">
     private void showCustomerDetails(Customer customer) {
         if (customer != null) {
@@ -384,6 +475,7 @@ public class Controller {
 
     private void showTicketDetails(Ticket ticket) {
         if (ticket != null) {
+            this.ticket = ticket;
             lbl_TicketNr.setText(String.valueOf(ticket.gettId()));
             lbl_TicketPriority.setText(ticket.gettPriority());
             lbl_TicketStatus.setText(ticket.gettStatus());
@@ -398,6 +490,7 @@ public class Controller {
 
     private void showEmployeeDetails(Employee employee) {
         if (employee != null) {
+            this.employee = employee;
             lbl_EmployeeFirstName.setText(employee.geteFirstName());
             lbl_EmployeeLastName.setText(employee.geteLastName());
             lbl_EmployeePhone.setText(employee.getePhoneNumber());
@@ -427,33 +520,11 @@ public class Controller {
     }
     //</editor-fold>
 
-    private void screenInitialize() {
-        ap_Home.setVisible(true);
-        ap_Customers.setDisable(true);
-        ap_TicketList.setDisable(true);
-        ap_Staff.setDisable(true);
-        ap_Customers.setVisible(false);
-        ap_TicketList.setVisible(false);
-        ap_Staff.setVisible(false);
-
-        tf_CustFName.setVisible(false);
-        tf_CustLName.setVisible(false);
-        tf_CustStreet.setVisible(false);
-        tf_CustCity.setVisible(false);
-        tf_CustPostCode.setVisible(false);
-        tf_CustPhone.setVisible(false);
-        tf_CustEmail.setVisible(false);
-
-        btn_CustEditOK.setVisible(false);
-        btn_CustEditCancel.setVisible(false);
-
-}
-
+    /*---------- TableView Handling -----------------------------------------------------------------------*/
     private void populateTableView() {
         try {
             clearAllTableViews();
 
-            tblV_Customer.setItems(customerData);
             customerData.addAll(readCustomerData());
             tblC_CustomerNr.setCellValueFactory(c -> new SimpleStringProperty(String.valueOf(c.getValue().getcId())));
             tblC_CustFullName.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().getcFirstName() + " " + c.getValue().getcLastName()));
@@ -475,7 +546,19 @@ public class Controller {
         }
     }
 
+    private void clearAllTableViews() {
+        customerData.clear();
+        tblV_Customer.setItems(customerData);
 
+        employeeData.clear();
+        tblV_Employee.setItems(employeeData);
+
+        ticketData.clear();
+        tblV_TicketListTable.setItems(ticketData);
+    }
+
+
+    /*---------- Misc. Handling --------------------------------------------------------------------------------------*/
     private void undecoratedDraggableStage(Parent root, Stage s) {
 
         //Make undecorated window draggable/movable
@@ -507,36 +590,5 @@ public class Controller {
         s.setScene(new Scene(root));
         s.show();
     }
-
-    private void resetAllCustomerLabels(){
-        lbl_FirstName.setVisible(true);
-        lbl_LastName.setVisible(true);
-        lbl_Street.setVisible(true);
-        lbl_City.setVisible(true);
-        lbl_PostalCode.setVisible(true);
-        lbl_Phone.setVisible(true);
-        lbl_Email.setVisible(true);
-    }
-
-    private void resetAllEmployeeLabels(){
-        lbl_EmployeeFirstName.setVisible(true);
-        lbl_EmployeeLastName.setVisible(true);
-        lbl_EmployeePhone.setVisible(true);
-        lbl_EmployeeEmail.setVisible(true);
-        lbl_EmployeeRole.setVisible(true);
-    }
-
-
-    private void clearAllTableViews(){
-        customerData.clear();
-        tblV_Customer.setItems(customerData);
-
-        employeeData.clear();
-        tblV_Employee.setItems(employeeData);
-
-        ticketData.clear();
-        tblV_TicketListTable.setItems(ticketData);
-    }
-
 
 }

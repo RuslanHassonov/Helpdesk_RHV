@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+@SuppressWarnings("Duplicates")
 public class Main extends Application {
 
     private double xOffset = 0;
