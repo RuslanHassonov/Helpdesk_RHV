@@ -14,7 +14,7 @@ public class Ticket {
     private String tPriority;
     private String creationDate;
 
-    @OneToMany(targetEntity = TicketLine.class, cascade = {CascadeType.REFRESH,CascadeType.REMOVE})
+    @OneToMany(targetEntity = TicketLine.class, cascade = {CascadeType.REFRESH, CascadeType.REMOVE})
     private List<TicketLine> tDetail;
 
     @OneToOne
@@ -78,5 +78,14 @@ public class Ticket {
 
     public void setCreationDate(String creationDate) {
         this.creationDate = creationDate;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Ticket %d : \n" +
+                " - Priority:      %s \n" +
+                " - Creation Date: %s \n" +
+                " - Status:        %s \n", this.gettId(), this.gettPriority(),
+                this.getCreationDate(), this.gettStatus());
     }
 }

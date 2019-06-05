@@ -95,6 +95,8 @@ public class Controller {
     @FXML
     private Button btn_EmpMore;
     @FXML
+    private Button btn_EmpFind;
+    @FXML
     private Button btn_NewTicket;
     @FXML
     private Button btn_SearchTicket;
@@ -354,23 +356,27 @@ public class Controller {
     @FXML
     private void moreEmployeeButtonPressed() {
         try {
-          FXMLLoader loader = new FXMLLoader(getClass().getResource("windows/empTicketListDialog.fxml"));
-            Parent root = loader.load();
-            Stage s = new Stage();
-            s.initStyle(StageStyle.UNDECORATED);
 
-            undecoratedDraggableStage(root, s);
+            if (employee != null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("windows/empTicketListDialog.fxml"));
+                Parent root = loader.load();
+                Stage s = new Stage();
+                s.initStyle(StageStyle.UNDECORATED);
 
-            s.setScene(new Scene(root));
+                undecoratedDraggableStage(root, s);
 
-            EmpTicketListDialog controller = loader.getController();
-            controller.initData(employee);
-            controller.initData(new Employee());
+                s.setScene(new Scene(root));
 
-            s.show();
+                EmpTicketListDialog controller = loader.getController();
+                controller.initData(employee);
+
+                s.show();
+            } else {
+                throw new IOException("Select an employee first.");
+            }
 
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(new JFrame(), "Error during deletion: " + e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(new JFrame(), e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
             //https://stackoverflow.com/questions/14187963/passing-parameters-javafx-fxml
         } catch (Exception e) {
             JOptionPane.showMessageDialog(new JFrame(), "Error: " + e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
