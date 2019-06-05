@@ -23,12 +23,14 @@ import javax.swing.*;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import static com.helpdesk.service.customer.DeleteCustomer.deleteExistingCustomer;
 import static com.helpdesk.service.customer.FindCustomer.findExistingCustomer;
 import static com.helpdesk.service.customer.ReadCustomerData.readCustomerData;
 import static com.helpdesk.service.customer.UpdateCustomer.updateExistingCustomer;
 import static com.helpdesk.service.employee.DeleteEmployee.deleteExistingEmployee;
+import static com.helpdesk.service.employee.FindEmployee.filterEmployeeByTicketId;
 import static com.helpdesk.service.employee.FindEmployee.findExistingEmployee;
 import static com.helpdesk.service.employee.ReadEmployeeData.readEmployeeData;
 import static com.helpdesk.service.ticket.DeleteTicket.deleteExistingTicket;
@@ -158,6 +160,8 @@ public class Controller {
     private Label lbl_TicketStatus;
     @FXML
     private Label lbl_TicketPriority;
+    @FXML
+    private Label lbl_TicketAssignedTo;
     //</editor-fold>
 
     //<editor-fold desc="anchor-pane definition">
@@ -345,7 +349,7 @@ public class Controller {
 
     @FXML
     private void findEmployeeButtonPressed() {
-        try{
+        try {
             Employee employee = findExistingEmployee(Integer.parseInt(tf_EmployeeSearch.getText()));
             showEmployeeDetails(employee);
         } catch (Exception e) {
@@ -506,6 +510,8 @@ public class Controller {
             lbl_TicketNr.setText(String.valueOf(ticket.gettId()));
             lbl_TicketPriority.setText(ticket.gettPriority());
             lbl_TicketStatus.setText(ticket.gettStatus());
+            Employee emp = filterEmployeeByTicketId(ticket.gettId());
+            lbl_TicketAssignedTo.setText((emp.geteId()) + " - " + emp.geteFirstName() + " " + emp.geteLastName());
 
         } else {
 

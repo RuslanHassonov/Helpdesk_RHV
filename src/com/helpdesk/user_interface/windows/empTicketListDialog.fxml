@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="491.0" prefWidth="717.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.helpdesk.user_interface.windows.EmpTicketListDialog">
+<AnchorPane prefHeight="491.0" prefWidth="717.0" style="-fx-background-color: #ededed;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.helpdesk.user_interface.windows.EmpTicketListDialog">
 
     <children>
         <Pane prefHeight="90.0" prefWidth="600.0" style="-fx-background-color: #5579b2;" stylesheets="@../css/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -72,22 +72,22 @@
                   <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Work Description: " GridPane.columnSpan="2">
+                  <Label styleClass="label-header" text="Work Description: " GridPane.columnSpan="2">
                      <font>
                         <Font name="Segoe UI" size="27.0" />
                      </font>
                   </Label>
-                  <Label text="Current Status:" GridPane.rowIndex="2" />
-                  <Label fx:id="lbl_WrkStatus" text="Work Status" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label styleClass="label-detail" stylesheets="@../css/style.css" text="Current Status:" GridPane.rowIndex="2" />
+                  <Label fx:id="lbl_WrkStatus" stylesheets="@../css/style.css" text="Work Status" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="tf_WrkDescription" prefHeight="32.0" prefWidth="342.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets bottom="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Label text="Work Description:" GridPane.rowIndex="3" />
-                  <CheckBox fx:id="chkb_WrkOrderClosed" alignment="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="Work order closed" GridPane.rowIndex="5" />
-                  <Label text="Ticket Number: " GridPane.rowIndex="1" />
-                  <Label fx:id="lbl_TicketNr" text="Ticket NR" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label styleClass="label-detail" stylesheets="@../css/style.css" text="Work Description:" GridPane.rowIndex="3" />
+                  <CheckBox fx:id="chkb_WrkOrderClosed" alignment="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" styleClass="label-detail" stylesheets="@../css/style.css" text="Work order closed" GridPane.rowIndex="5" />
+                  <Label styleClass="label-detail" stylesheets="@../css/style.css" text="Ticket Number: " GridPane.rowIndex="1" />
+                  <Label fx:id="lbl_TicketNr" stylesheets="@../css/style.css" text="Ticket NR" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
                <padding>
                   <Insets left="10.0" />

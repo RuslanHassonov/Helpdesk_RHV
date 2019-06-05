@@ -16,13 +16,22 @@ public class FindEmployee {
         return entityManager.find(Employee.class, empId);
     }
 
-    public static List<Employee> filterEmployeeByTicket(int tId) {
+    public static Employee filterEmployeeByTicketId(int tId) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Eclipselink_JPA");
         EntityManager em = emf.createEntityManager();
+        Employee employee;
 
-        Query query = em.createNativeQuery("Select et.Employee_EID from employee_ticket et where eTicketList_TID = ?", String.valueOf(tId));
+        Query query = em.createNativeQuery("Select e.*\n" +
+                                                    "from employee e inner join employee_ticket et on et.Employee_EID = e.EID\n" +
+                                                    "where et.eTicketList_TID = ?", Employee.class);
+        query.setParameter(1, tId);
         List<Employee> list = query.getResultList();
 
-        return list;
+        if (list.get(0) != null) {
+               employee = findExistingEmployee(list.get(0).geteId());
+               return employee;
+        } else {
+            return null;
+        }
     }
 }
