@@ -19,6 +19,8 @@ public class EmpTicketListDialog {
     private Label lbl_EmpFullName;
     @FXML
     private Label lbl_WrkStatus;
+    @FXML
+    private Label lbl_TicketNr;
 
     @FXML
     private TextField tf_WrkDescription;
@@ -36,9 +38,11 @@ public class EmpTicketListDialog {
 
     private Ticket ticket;
     private boolean check = false;
+    private Employee employee;
 
     @FXML
     private void initialize() {
+
         lv_EmpTicketList.getSelectionModel().selectedItemProperty().addListener(
                 (observableValue, oldValue, newValue) -> getTicketWorkDetails(newValue)
         );
@@ -51,6 +55,8 @@ public class EmpTicketListDialog {
         }
         try {
             createNewTicketLine(ticket.gettId(), tf_WrkDescription.getText(), check);
+            lbl_WrkStatus.setText("");
+            tf_WrkDescription.clear();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(new JFrame(), "Error during ticket line creation: " + e.getMessage());
             e.printStackTrace();
@@ -66,6 +72,7 @@ public class EmpTicketListDialog {
 
     public void initData(Employee employee) {
         if (employee != null) {
+            this.employee = employee;
             lbl_EmpFullName.setText(employee.geteFirstName() + " " + employee.geteLastName());
             populateTicketListView(employee);
             //lbl_EmpFullName.setText("Test test test");
@@ -86,10 +93,11 @@ public class EmpTicketListDialog {
     }
 
     private void getTicketWorkDetails(Ticket ticket) {
-
         if (ticket != null) {
             this.ticket = ticket;
             lbl_WrkStatus.setText(ticket.gettStatus());
+            lbl_TicketNr.setText(String.valueOf(ticket.gettId()));
+
         } else {
             System.out.println("No ticket found.");
         }
