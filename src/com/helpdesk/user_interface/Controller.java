@@ -511,13 +511,18 @@ public class Controller {
             lbl_TicketPriority.setText(ticket.gettPriority());
             lbl_TicketStatus.setText(ticket.gettStatus());
             Employee emp = filterEmployeeByTicketId(ticket.gettId());
-            lbl_TicketAssignedTo.setText((emp.geteId()) + " - " + emp.geteFirstName() + " " + emp.geteLastName());
+            if (emp != null) {
+                lbl_TicketAssignedTo.setText((emp.geteId()) + " - " + emp.geteFirstName() + " " + emp.geteLastName());
+            } else {
+                lbl_TicketAssignedTo.setText("");
+            }
 
         } else {
 
             lbl_TicketNr.setText("");
             lbl_TicketPriority.setText("");
             lbl_TicketStatus.setText("");
+            lbl_TicketAssignedTo.setText("");
         }
     }
 
