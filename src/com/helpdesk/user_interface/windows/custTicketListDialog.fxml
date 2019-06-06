@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="371.0" prefWidth="664.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.helpdesk.user_interface.windows.CustTicketListDialog">
+
+
+    <children>
+        <Pane prefHeight="90.0" prefWidth="600.0" style="-fx-background-color: #5579b2;" stylesheets="@../css/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <effect>
+                <DropShadow color="#00000045" />
+            </effect>
+            <children>
+                <Label fx:id="lbl_CustFullName" layoutX="14.0" layoutY="26.0" text="Customer Full Name" textFill="#ededed">
+                    <font>
+                        <Font name="Segoe UI" size="32.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icons/baseline_perm_identity_white_24dpx2.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Label>
+                <Pane disable="true" layoutX="458.0" layoutY="-228.0" opacity="0.26" prefHeight="326.0" prefWidth="198.0" rotate="-67.0" snapToPixel="false" style="-fx-background-color: #385076; -fx-background-radius: 25;" />
+                <Pane centerShape="false" disable="true" layoutX="469.0" layoutY="-168.0" opacity="0.29" prefHeight="236.0" prefWidth="205.0" rotate="-67.0" snapToPixel="false" style="-fx-background-color: #385076; -fx-background-radius: 25;" />
+            </children>
+        </Pane>
+        <ListView fx:id="lv_CustTicketList" layoutY="90.0" prefHeight="216.0" prefWidth="344.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="90.0" />
+        <HBox alignment="CENTER" layoutX="556.0" layoutY="477.0" spacing="5.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
+            <children>
+                <Button fx:id="btn_CustTicketListOk" mnemonicParsing="false" onAction="#OkButtonPressed" prefHeight="35.0" prefWidth="70.0" styleClass="crudBtn" stylesheets="@../css/style.css" text="OK">
+                    <font>
+                        <Font name="Segoe UI" size="12.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+        <AnchorPane layoutX="396.0" layoutY="90.0" prefHeight="199.0" prefWidth="390.0" AnchorPane.leftAnchor="360.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0">
+            <children>
+                <GridPane layoutY="6.0" prefHeight="183.0" prefWidth="390.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="202.0" minWidth="10.0" prefWidth="138.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="222.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="114.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="192.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="192.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label styleClass="label-header" stylesheets="@../css/style.css" text="Ticket Description: " GridPane.columnSpan="2">
+                            <font>
+                                <Font name="Segoe UI" size="27.0" />
+                            </font>
+                        </Label>
+                        <Label styleClass="label-detail" stylesheets="@../css/style.css" text="Current Status:" GridPane.rowIndex="2" />
+                        <Label fx:id="lbl_WrkStatus" stylesheets="@../css/style.css" text="Work Status" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label styleClass="label-detail" stylesheets="@../css/style.css" text="Ticket Number: " GridPane.rowIndex="1" />
+                        <Label fx:id="lbl_TicketNr" stylesheets="@../css/style.css" text="Ticket NR" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    </children>
+                    <padding>
+                        <Insets left="10.0" />
+                    </padding>
+                </GridPane>
+            </children>
+        </AnchorPane>
+    </children>
+
+</AnchorPane>

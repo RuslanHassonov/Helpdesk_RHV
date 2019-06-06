@@ -3,6 +3,7 @@ package com.helpdesk.user_interface;
 import com.helpdesk.entity.Customer;
 import com.helpdesk.entity.Employee;
 import com.helpdesk.entity.Ticket;
+import com.helpdesk.user_interface.windows.CustTicketListDialog;
 import com.helpdesk.user_interface.windows.EmpTicketListDialog;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -88,6 +89,8 @@ public class Controller {
     private Button btn_CustEditOK;
     @FXML
     private Button btn_CustEditCancel;
+    @FXML
+    private Button btn_CustMore;
     @FXML
     private Button btn_CustDelete;
     @FXML
@@ -323,6 +326,36 @@ public class Controller {
             JOptionPane.showMessageDialog(new JFrame(), "Error during deletion:" + e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
         }
 
+    }
+
+    @FXML
+    private void moreCustomerButtonPressed() {
+        try {
+
+            if (customer != null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("windows/custTicketListDialog.fxml"));
+                Parent root = loader.load();
+                Stage s = new Stage();
+                s.initStyle(StageStyle.UNDECORATED);
+
+                undecoratedDraggableStage(root, s);
+
+                s.setScene(new Scene(root));
+
+                CustTicketListDialog controller = loader.getController();
+                controller.initData(customer);
+
+                s.show();
+            } else {
+                throw new IOException("Select a customer first.");
+            }
+
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(new JFrame(), e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+            //https://stackoverflow.com/questions/14187963/passing-parameters-javafx-fxml
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error: " + e.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
+        }
     }
 
     /*---------- Employee Handling -----------------------------------------------------------------------------------*/

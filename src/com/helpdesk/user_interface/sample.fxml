@@ -180,7 +180,7 @@
                 </Pane>
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="ap_Customers" layoutX="250.0" layoutY="46.0" prefHeight="470.0" prefWidth="650.0" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
+        <AnchorPane fx:id="ap_Customers" layoutX="250.0" layoutY="46.0" prefHeight="470.0" prefWidth="650.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
             <children>
                 <Pane layoutY="14.0" prefHeight="69.0" prefWidth="263.0" style="-fx-background-color: #5579b2; -fx-background-radius: 0 15 15 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
@@ -349,6 +349,7 @@
                               <Button fx:id="btn_CustEditCancel" mnemonicParsing="false" onAction="#editCustomerCancelButtonPressed" prefHeight="31.0" prefWidth="60.0" styleClass="crudBtn" stylesheets="@css/style.css" text="Cancel" visible="false" />
                            </children>
                         </HBox>
+                        <Button fx:id="btn_CustMore" layoutX="12.0" layoutY="281.0" mnemonicParsing="false" onAction="#moreCustomerButtonPressed" styleClass="crudBtn" text="More..." />
                             </children>
                             <padding>
                                 <Insets left="7.0" />
@@ -384,7 +385,7 @@
                 </HBox>
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="ap_TicketList" layoutX="260.0" layoutY="56.0" prefHeight="470.0" prefWidth="650.0" stylesheets="@css/style.css" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
+        <AnchorPane fx:id="ap_TicketList" layoutX="260.0" layoutY="56.0" prefHeight="470.0" prefWidth="650.0" stylesheets="@css/style.css" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
             <children>
                 <Pane prefHeight="69.0" prefWidth="263.0" style="-fx-background-color: #5579b2; -fx-background-radius: 0 15 15 0;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
